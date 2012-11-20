@@ -291,6 +291,9 @@
     <string name="increasing_ring_interval_5seconds">5 seconds</string>
     <string name="increasing_ring_interval_10seconds">10 seconds</string>
 
+    <!-- Themes settings  -->
+    <string name="themes_settings_title">Themes</string>
+
     <!-- **** CYANOGENMOD ADDITIONS END **** -->
 
     <!-- Display : Animation options -->
