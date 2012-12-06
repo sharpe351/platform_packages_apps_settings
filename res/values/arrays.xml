@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-**
 ** Copyright 2007 The Android Open Source Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
@@ -221,7 +220,6 @@
         <item>kor</item>
     </string-array>
 
-
     <!-- Wi-Fi settings -->
 
     <!-- Match this with the order of NetworkInfo.DetailedState. --> <skip />
@@ -348,7 +346,6 @@
         <item>Out-of-range</item>
    </string-array>
 
-
     <!-- Bluetooth Settings -->
 
     <!-- Discoverable mode timeout options -->
@@ -421,7 +418,6 @@
         <item>2</item>
     </string-array>
 
-
     <!-- Display options for UsageStats class -->
     <string-array name="usage_stats_display_order_types">
         <item>Usage time</item>
@@ -453,7 +449,7 @@
         <item>GTC</item>
     </string-array>
 
-    <!-- Wi-Fi IP settings. -->
+   <!-- Wi-Fi IP settings. -->
    <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
     <string-array name="wifi_ip_settings">
         <!-- Use DHCP (Dynamic Host Configuration Protocol) for obtaining IP settings [CHAR LIMIT=25] -->

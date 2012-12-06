@@ -67,6 +67,7 @@
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.REBOOT" />
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <permission
         android:name="android.permission.REQUEST_SUPERUSER"
@@ -1667,6 +1668,16 @@
                 android:excludeFromRecents="true"
                 android:theme="@*android:style/Theme.Holo.Dialog.Alert" />
 
+        <!-- Performance Settings -->
+        <activity android:name=".performance.PerformanceSettings" />
+        <activity android:name=".performance.VoltageControlSettings" />
+
+        <receiver android:name=".performance.BootReceiver" android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <!-- Vanir End -->
 
         <!-- CyanogenMod activities Start -->
@@ -1852,5 +1863,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
     </application>
 </manifest>
