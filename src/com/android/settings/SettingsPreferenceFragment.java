@@ -29,6 +29,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -49,12 +50,16 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Di
 
     private String mHelpUrl;
 
+    protected Context mContext;
+
     // Cache the content resolver for async callbacks
     private ContentResolver mContentResolver;
 
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        mContext = getActivity().getApplicationContext();
 
         // Prepare help url and enable menu if necessary
         int helpResource = getHelpResource();
