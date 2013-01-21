@@ -35,6 +35,13 @@
             android:key="clock_style_pref"
             android:title="@string/status_bar_clock" />
 
+        <ListPreference
+            android:key="quick_pulldown"
+            android:title="@string/title_quick_pulldown"
+            android:entries="@array/quick_pulldown_entries"
+            android:entryValues="@array/quick_pulldown_values"
+            android:persistent="false" />
+
     </PreferenceCategory>
 
     <com.android.settings.androidx.preference.SystemCheckBoxPreference
