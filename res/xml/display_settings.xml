@@ -53,6 +53,14 @@
                 android:entryValues="@array/entryvalues_font_size"
                 android:dialogTitle="@string/dialog_title_font_size" />
 
+        <!-- Active display -->
+        <PreferenceScreen
+            android:key="active_display"
+            android:fragment="com.android.settings.androidx.ActiveDisplaySettings"
+            android:title="@string/ad_settings_title"
+            android:summary="@string/ad_settings_summary">
+        </PreferenceScreen>
+
         <PreferenceScreen
             android:key="general_ui_settings"
             android:fragment="com.android.settings.androidx.fragments.UserInterface"
