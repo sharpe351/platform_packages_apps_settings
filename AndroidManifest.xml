@@ -1574,7 +1574,7 @@
             android:launchMode="singleTop"
             android:theme="@style/CryptKeeperBlankTheme"
         />
-
+        <!-- Vanir Start -->
         <activity android:name=".vanir.VanirSettings" />
         <activity android:name=".vanir.PowerMenu" />
 
@@ -1588,6 +1588,17 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".vanir.AnimationControls"
+            android:label="@string/animation_manager_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="com.intent.category.SHORTCUT"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Vanir End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
