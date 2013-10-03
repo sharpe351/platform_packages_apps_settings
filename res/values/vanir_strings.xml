@@ -216,4 +216,7 @@
     <string name="home_wake_summary">Pressing the home button will wake your device</string>
     <string name="header_summary_vibrations">@null</string>
     <string name="wallpaper_animations">Wallpaper animations</string>
+
+    <!-- Lockscreen battery ring -->
+    <string name="battery_around_lockscreen_ring">Battery around unlock ring</string>
 </resources>
