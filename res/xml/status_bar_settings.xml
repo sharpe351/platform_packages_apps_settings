@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2012 The CyanogenMod Project
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2013 SlimRoms Project
+
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -15,11 +16,18 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/androidx_settings_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/status_bar_title">
 
-    <PreferenceScreen
-        android:key="status_bar"
-        android:fragment="com.android.settings.androidx.StatusBar"
-        android:title="@string/status_bar_title" />
+    <!-- Status bar tweaks -->
+    <PreferenceCategory
+        android:title="@string/status_bar_style_title">
+
+        <PreferenceScreen
+            android:fragment="com.android.settings.androidx.StatusBarClockStyle"
+            android:key="clock_style_pref"
+            android:title="@string/status_bar_clock" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
