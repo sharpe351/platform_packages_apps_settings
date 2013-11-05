@@ -1575,8 +1575,8 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
-        <activity android:name=".aosp.AdvancedSettings" />
-        <activity android:name=".aosp.PowerMenu" />
+        <activity android:name=".vanir.VanirSettings" />
+        <activity android:name=".vanir.PowerMenu" />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"

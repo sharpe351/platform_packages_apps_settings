@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2012 CyanogenMod
- * This code has been modified by AOIP.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.aosp;
+package com.android.settings.vanir;
 
 import android.app.ActivityManagerNative;
 import android.content.Context;
@@ -31,15 +30,15 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class AdvancedSettings extends SettingsPreferenceFragment implements
+public class VanirSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "AdvancedSettings";
+    private static final String TAG = "VanirSettings";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.advanced_settings);
+        addPreferencesFromResource(R.xml.vanir_settings);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {

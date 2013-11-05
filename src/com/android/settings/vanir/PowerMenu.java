@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.aosp;
+package com.android.settings.vanir;
 
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;

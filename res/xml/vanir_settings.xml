@@ -15,13 +15,13 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/advanced_settings_title"
+    android:title="@string/vanir_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <PreferenceScreen
         android:key="power_menu"
         android:title="@string/power_menu_title"
-        android:fragment="com.android.settings.aosp.PowerMenu"
+        android:fragment="com.android.settings.vanir.PowerMenu"
         android:summary="@string/power_menu_summary" />
 
 </PreferenceScreen>

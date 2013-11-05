@@ -58,16 +58,27 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
+    <!-- =========== BEGIN Vanir =========== -->
+    <header android:title="@string/vanir_title" />
+    <header
+        android:id="@+id/vanir_settings"
+        android:icon="@drawable/ic_settings_aboutvanir"
+        android:fragment="com.android.settings.vanir.VanirSettings"
+        android:title="@string/vanir_settings_title" />
+
+    <!-- Theme chooser -->
+    <header
+        android:icon="@drawable/ic_settings_themes"
+        android:title="@string/themes_title">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.tmobile.themechooser"
+                android:targetClass="com.tmobile.themechooser.ThemeChooser" />
+    </header>
+    <!-- =========== END Vanir =========== -->
+
     <!-- DEVICE -->
     <header android:id="@+id/device_section"
         android:title="@string/header_category_device" />
-
-    <!-- Advanced -->
-    <header
-        android:id="@+id/advanced_settings"
-        android:icon="@drawable/ic_advanced_settings"
-        android:fragment="com.android.settings.aosp.AdvancedSettings"
-        android:title="@string/advanced_settings" />
 
     <!-- Home -->
     <header
