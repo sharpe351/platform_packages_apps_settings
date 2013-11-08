@@ -65,15 +65,6 @@
         android:icon="@drawable/ic_settings_aboutvanir"
         android:fragment="com.android.settings.vanir.VanirSettings"
         android:title="@string/vanir_settings_title" />
-
-    <!-- Theme chooser -->
-    <header
-        android:icon="@drawable/ic_settings_themes"
-        android:title="@string/themes_title">
-        <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.tmobile.themechooser"
-                android:targetClass="com.tmobile.themechooser.ThemeChooser" />
-    </header>
     <!-- =========== END Vanir =========== -->
 
     <!-- DEVICE -->
