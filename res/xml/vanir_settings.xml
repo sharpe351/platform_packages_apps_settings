@@ -28,6 +28,11 @@
         android:fragment="com.android.settings.vanir.StatusBar"
         android:title="@string/status_bar_title" />
 
+     <PreferenceScreen
+        android:key="notification_drawer"
+        android:fragment="com.android.settings.vanir.NotificationDrawerSettings"
+        android:title="@string/notification_drawer_title" />
+
     <PreferenceScreen
         android:key="power_menu"
         android:title="@string/power_menu_title"
