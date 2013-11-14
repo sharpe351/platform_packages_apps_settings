@@ -37,17 +37,40 @@ import com.android.settings.Utils;
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String TAG = "StatusBarSettings";
+    private static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
+
+    private CheckBoxPreference mStatusBarTraffic;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         addPreferencesFromResource(R.xml.status_bar_settings);
 
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mStatusBarTraffic = (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_TRAFFIC);
+        mStatusBarTraffic.setChecked(Settings.System.getInt(resolver,
+            Settings.System.STATUS_BAR_TRAFFIC, 0) == 1);
+        mStatusBarTraffic.setOnPreferenceChangeListener(this);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return false;
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+        return true;
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mStatusBarTraffic) {
+            boolean value = (Boolean) objValue;
+            Settings.System.putInt(resolver,
+                Settings.System.STATUS_BAR_TRAFFIC, value ? 1 : 0);
+        } else {
+            return false;
+        }
+
+        return true;
     }
 
     @Override

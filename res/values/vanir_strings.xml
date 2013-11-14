@@ -91,7 +91,8 @@
 
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_style_title">Style</string>
+    <string name="status_bar_style_title">Status bar tweaks</string>
+    <string name="status_bar_summary">Enable statubar custom actions</string>
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock">Clock and date</string>
@@ -234,4 +235,8 @@
     <string name="system_power_crt_mode_vertical">Collapse vertical</string>
     <string name="system_power_crt_mode_both">Collapse orientation dependent</string>
     <string name="system_power_crt_mode_scale">Scale down</string>
+
+    <!-- Network speed -->
+    <string name="show_network_speed">Network speed indicator</string>
+    <string name="show_network_speed_summary">Show network speed in statusbar</string>
 </resources>
