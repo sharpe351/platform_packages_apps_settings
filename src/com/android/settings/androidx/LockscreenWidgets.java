@@ -34,7 +34,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.Utils;
 
-import com.androidx.util.DeviceUtils;
+import com.android.internal.util.slim.DeviceUtils;
 import com.android.internal.widget.LockPatternUtils;
 
 public class LockscreenWidgets extends SettingsPreferenceFragment
