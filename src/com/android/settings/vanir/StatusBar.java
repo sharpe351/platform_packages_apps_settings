@@ -43,12 +43,10 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
     private static final String KEY_STATUS_BAR_CLOCK = "clock_style_pref";
     private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
     private static final String QUICK_PULLDOWN = "quick_pulldown";
-    private static final String STATUS_BAR_BATTERY_PERCENTAGE = "status_bar_battery_percentage";
 
     private PreferenceScreen mClockStyle;
     private CheckBoxPreference mStatusBarBrightnessControl;
     ListPreference mQuickPulldown;
-    private CheckBoxPreference mStatusBarBatteryPercentage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -85,12 +83,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
         mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getContentResolver(),
                             Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
         mStatusBarBrightnessControl.setOnPreferenceChangeListener(this);
-
-        mStatusBarBatteryPercentage = 
-            (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BATTERY_PERCENTAGE);
-        mStatusBarBatteryPercentage.setChecked((Settings.System.getInt(getContentResolver(),
-                            Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0) == 1));
-        mStatusBarBatteryPercentage.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -105,11 +97,6 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
             Settings.System.putInt(resolver, Settings.System.QS_QUICK_PULLDOWN,
                     quickPulldownValue);
             updatePulldownSummary(quickPulldownValue);
-            return true;
-        } else if (preference == mStatusBarBatteryPercentage) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT,
-                    (Boolean) newValue ? 1 : 0);
             return true;
         }
         return false;
