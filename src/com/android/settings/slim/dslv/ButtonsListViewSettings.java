@@ -494,6 +494,9 @@ public class ButtonsListViewSettings extends ListFragment implements
             case POWER_MENU_SHORTCUT:
                 PolicyHelper.setPowerMenuConfig(mActivity, buttonConfigs, reset);
                 break;
+            case LOCKSCREEN_SHORTCUT:
+                ButtonsHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
+                break;
         }
     }
 
@@ -729,7 +732,7 @@ public class ButtonsListViewSettings extends ListFragment implements
                                     getOwner().mPendingIndex = which;
                                     getOwner().mPendingLongpress = longpress;
                                     getOwner().mPendingNewButton = newButton;
-                                    getOwner().mPicker.pickShortcut();
+                                    getOwner().mPicker.pickShortcut(getOwner().getId());
                                 }
                             } else {
                                 if (newButton) {
