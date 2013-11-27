@@ -15,9 +15,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Vanir menus -->
-    <string name="vanir_title">Voodoo</string>
-    <string name="vanir_settings_title">Vanir Customizations</string>
+    <!-- Android X menus -->
+    <string name="androidx_title">Advanced X</string>
+    <string name="androidx_settings_title">Android X Customizations</string>
     <string name="ok">OK</string>
     <string name="reset">Reset</string>
     <string name="misc_short">Misc</string>
@@ -358,11 +358,11 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="pref_recents_title">Enhance recents panel</string>
     <string name="pref_recents_summary">Add a memory usage bar to the recents panel</string>
 
-    <!-- vanir config toggle -->
-    <string name="vanir_config_title">Vanir tweaks</string>
-    <string name="vanir_config_enabled_summary">Enable application of available kernel tweaks during boot\n\nTo configure settings, run \"vanir config\" as root in a terminal emulator or adb shell</string>
-    <string name="vanir_config_disabled_summary">Disable application of available kernel tweaks during boot</string>
-    <string name="vanir_config_just_disabled_summary">Disable application of available kernel tweaks during boot\n\n<b>Reboot required for default values to be restored</b></string>
+    <!-- androidx config toggle -->
+    <!-- <string name="androidx_config_title">Androidx tweaks</string>
+    <string name="androidx_config_enabled_summary">Enable application of available kernel tweaks during boot\n\nTo configure settings, run \"androidx config\" as root in a terminal emulator or adb shell</string>
+    <string name="androidx_config_disabled_summary">Disable application of available kernel tweaks during boot</string>
+    <string name="androidx_config_just_disabled_summary">Disable application of available kernel tweaks during boot\n\n<b>Reboot required for default values to be restored</b></string> -->
 
     <!-- Quick Pulldown -->
     <string name="summary_quick_pulldown">edge of the status bar pulls down Quick Settings</string>

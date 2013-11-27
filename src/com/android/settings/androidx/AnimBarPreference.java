@@ -1,4 +1,4 @@
-package com.android.settings.vanir;
+package com.android.settings.androidx;
 
 import android.content.Context;
 import android.content.res.TypedArray;

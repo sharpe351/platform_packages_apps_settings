@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.vanir;
+package com.android.settings.androidx;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -34,7 +34,7 @@ import android.util.Log;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import com.vanir.util.DeviceUtils;
+import com.androidx.util.DeviceUtils;
 
 public class StatusBar extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 

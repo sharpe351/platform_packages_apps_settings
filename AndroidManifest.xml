@@ -1575,15 +1575,15 @@
             android:launchMode="singleTop"
             android:theme="@style/CryptKeeperBlankTheme"
         />
-        <!-- Vanir Start -->
-        <activity android:name=".vanir.VanirSettings" />
-        <activity android:name=".vanir.PowerMenu" />
+        <!-- Android X Start -->
+        <activity android:name=".androidx.AndroidxSettings" />
+        <activity android:name=".androidx.PowerMenu" />
 
         <!-- LCD changer -->
-        <activity android:name=".vanir.fragments.UserInterface" />
+        <activity android:name=".androidx.fragments.UserInterface" />
 
         <activity
-            android:name=".vanir.fragments.DensityChanger"
+            android:name=".androidx.fragments.DensityChanger"
             android:label="@string/lcd_density_wizard" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -1591,7 +1591,7 @@
         </activity>
 
         <activity
-            android:name=".vanir.AnimationControls"
+            android:name=".androidx.AnimationControls"
             android:label="@string/animation_manager_title">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -1599,7 +1599,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".vanir.AutoBrightnessSetup"
+        <activity android:name=".androidx.AutoBrightnessSetup"
                 android:excludeFromRecents="true"
                 android:theme="@*android:style/Theme.Holo.Dialog.Alert" />
 
@@ -1613,7 +1613,7 @@
             </intent-filter>
         </receiver>
 
-        <!-- Vanir End -->
+        <!-- androidx End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"

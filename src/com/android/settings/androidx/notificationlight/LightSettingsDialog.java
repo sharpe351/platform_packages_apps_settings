@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.vanir.notificationlight;
+package com.android.settings.androidx.notificationlight;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -42,7 +42,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.android.settings.vanir.notificationlight.ColorPickerView.OnColorChangedListener;
+import com.android.settings.androidx.notificationlight.ColorPickerView.OnColorChangedListener;
 
 import java.util.ArrayList;
 import java.util.IllegalFormatException;

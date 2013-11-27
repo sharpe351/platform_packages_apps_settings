@@ -58,13 +58,13 @@
         android:fragment="com.android.settings.WirelessSettings"
         android:icon="@drawable/empty_icon" />
 
-    <!-- =========== BEGIN Vanir =========== -->
-    <header android:title="@string/vanir_title" />
+    <!-- =========== BEGIN Android X =========== -->
+    <header android:title="@string/androidx_title" />
     <header
-        android:id="@+id/vanir_settings"
-        android:icon="@drawable/ic_settings_aboutvanir"
-        android:fragment="com.android.settings.vanir.VanirSettings"
-        android:title="@string/vanir_settings_title" />
+        android:id="@+id/androidx_settings"
+        android:icon="@drawable/ic_advanced_settings"
+        android:fragment="com.android.settings.androidx.AndroidxSettings"
+        android:title="@string/androidx_settings_title" />
 
     <!-- Performance -->
     <header
@@ -73,7 +73,7 @@
         android:icon="@drawable/ic_settings_performance"
         android:title="@string/performance_settings_title" />
 
-    <!-- =========== END Vanir =========== -->
+    <!-- =========== END Android X =========== -->
 
     <!-- DEVICE -->
     <header

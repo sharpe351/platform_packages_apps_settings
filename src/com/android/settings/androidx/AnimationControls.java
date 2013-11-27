@@ -1,4 +1,4 @@
-package com.android.settings.vanir;
+package com.android.settings.androidx;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,10 +14,10 @@ import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.IWindowManager;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.vanir.AnimBarPreference;
+import com.android.settings.androidx.AnimBarPreference;
 import com.android.settings.R;
 
-import com.vanir.util.VanirAnimationHelper;
+import com.androidx.util.AndroidxAnimationHelper;
 
 import java.util.Arrays;
 
@@ -75,12 +75,12 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
         mWindowManager = IWindowManager.Stub.asInterface(ServiceManager.getService("window"));
 
         PreferenceScreen prefs = getPreferenceScreen();
-        mAnimations = VanirAnimationHelper.getAnimationsList();
+        mAnimations = AndroidxAnimationHelper.getAnimationsList();
         int animqty = mAnimations.length;
         mAnimationsStrings = new String[animqty];
         mAnimationsNum = new String[animqty];
         for (int i = 0; i < animqty; i++) {
-            mAnimationsStrings[i] = VanirAnimationHelper.getProperName(mContext, mAnimations[i]);
+            mAnimationsStrings[i] = AndroidxAnimationHelper.getProperName(mContext, mAnimations[i]);
             mAnimationsNum[i] = String.valueOf(mAnimations[i]);
         }
 

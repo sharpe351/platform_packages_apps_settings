@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.vanir.notificationlight;
+package com.android.settings.androidx.notificationlight;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

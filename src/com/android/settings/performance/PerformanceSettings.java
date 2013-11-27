@@ -34,13 +34,13 @@ import android.util.Log;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.vanir.util.Helpers;
-import com.vanir.util.CMDProcessor;
-import com.vanir.util.CMDProcessor.CommandResult;
+//import com.androidx.util.CMDProcessor;
+//import com.androidx.util.CMDProcessor.CommandResult;
 
 public class PerformanceSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
     private static final String TAG = "PerformanceSettings";
 
-    private static final String VANIR_CONFIG = "vanir_config";
+    //private static final String ANDROIDX_CONFIG = "androidx_config";
 
     private static final String USE_DITHERING_PREF = "pref_use_dithering";
     private static final String USE_DITHERING_PERSIST_PROP = "persist.sys.use_dithering";
@@ -57,48 +57,48 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements P
     private static final String DISABLE_BOOTANIMATION_PERSIST_PROP = "persist.sys.nobootanimation";
     private static final String DISABLE_BOOTANIMATION_DEFAULT = "0";
 
-    private static final String SYSTEMUI_RECENTS_MEM_DISPLAY = "vanir_interface_recents_mem_display";
+    private static final String SYSTEMUI_RECENTS_MEM_DISPLAY = "androidx_interface_recents_mem_display";
 
     private ListPreference mUseDitheringPref;
 
-    private SwitchPreference mVanirConfig;
+    //private SwitchPreference mAndroidxConfig;
     private CheckBoxPreference mUse16bppAlphaPref;
     private CheckBoxPreference mDisableBootanimPref;
     private CheckBoxPreference mPurgeableAssetsPref;
     private CheckBoxPreference mMembar;
 
-    private boolean everenabled;
+    //private boolean everenabled;
 
-    private Handler mHandler = new Handler();
+    /*private Handler mHandler = new Handler();
     private Runnable enabler = new Runnable() {
         public void run() {
-            CommandResult cr = new CMDProcessor().su.runWaitFor("vanir enable");
+            CommandResult cr = new CMDProcessor().su.runWaitFor("androidx enable");
             if (!cr.success()) {
                 Log.e(TAG, "Failed: vanir enable\n\t"+cr.toString());
-                mVanirConfig.setChecked(false);
+                mAndroidxConfig.setChecked(false);
             }
             else {
-                Log.i(TAG, "vanir tweak application at boot enabled");
+                Log.i(TAG, "androidx tweak application at boot enabled");
                 everenabled = true;
-                mVanirConfig.setSummary(getResources().getString(R.string.vanir_config_enabled_summary));
+                mAndroidxConfig.setSummary(getResources().getString(R.string.androidx_config_enabled_summary));
             }
-            mVanirConfig.setEnabled(true);
+            mAndroidxConfig.setEnabled(true);
         }
     };
     private Runnable disabler = new Runnable() {
         public void run() {
-            CommandResult cr = new CMDProcessor().su.runWaitFor("vanir disable");
+            CommandResult cr = new CMDProcessor().su.runWaitFor("androidx disable");
             if (!cr.success()) {
-                Log.e(TAG, "Failed: vanir disabled\n\t"+cr.toString());
-                mVanirConfig.setChecked(true);
+                Log.e(TAG, "Failed: androidx disabled\n\t"+cr.toString());
+                mAndroidxConfig.setChecked(true);
             }
             else {
-                Log.i(TAG, "vanir tweak application at boot disabled");
-                mVanirConfig.setSummary(getResources().getString(R.string.vanir_config_just_disabled_summary));
+                Log.i(TAG, "androidx tweak application at boot disabled");
+                mAndroidxConfig.setSummary(getResources().getString(R.string.androidx_config_just_disabled_summary));
             }
-            mVanirConfig.setEnabled(true);
+            mAndroidxConfig.setEnabled(true);
         }
-    };
+    };*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -117,18 +117,18 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements P
                     PURGEABLE_ASSETS_DEFAULT);
             mPurgeableAssetsPref.setChecked("1".equals(purgeableAssets));
 
-            mVanirConfig = (SwitchPreference) prefSet.findPreference(VANIR_CONFIG);
+            /*mAndroidxConfig = (SwitchPreference) prefSet.findPreference(ANDROIDX_CONFIG);
 
-            CommandResult cr = new CMDProcessor().sh.runWaitFor("vanir status");
+            CommandResult cr = new CMDProcessor().sh.runWaitFor("androidx status");
             if (!cr.success())
-                Log.e(TAG, "Failed: vanir status\n\t"+cr.toString());
+                Log.e(TAG, "Failed: androidx status\n\t"+cr.toString());
             else {
                 final boolean enabled = cr.stdout.equals("1");
-                mVanirConfig.setSummary(getResources().getString(enabled ? R.string.vanir_config_enabled_summary : (everenabled ? R.string.vanir_config_just_disabled_summary : R.string.vanir_config_disabled_summary)));
-                mVanirConfig.setChecked(enabled);
+                mAndroidxConfig.setSummary(getResources().getString(enabled ? R.string.androidx_config_enabled_summary : (everenabled ? R.string.androidx_config_just_disabled_summary : R.string.androidx_config_disabled_summary)));
+                mAndroidxConfig.setChecked(enabled);
                 if (!everenabled) everenabled = enabled;
             }
-            mVanirConfig.setOnPreferenceChangeListener(this);
+            mAndroidxConfig.setOnPreferenceChangeListener(this);*/
 
             String useDithering = SystemProperties.get(USE_DITHERING_PERSIST_PROP, USE_DITHERING_DEFAULT);
             mUseDitheringPref = (ListPreference) prefSet.findPreference(USE_DITHERING_PREF);
@@ -186,9 +186,9 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements P
             int index = mUseDitheringPref.findIndexOfValue(newVal);
             SystemProperties.set(USE_DITHERING_PERSIST_PROP, newVal);
             mUseDitheringPref.setSummary(mUseDitheringPref.getEntries()[index]);
-        } else if (preference == mVanirConfig) {
-            mVanirConfig.setEnabled(false);
-            mHandler.post(mVanirConfig.isChecked() ? enabler : disabler);
+        /*} else if (preference == mAndroidxConfig) {
+            mAndroidxConfig.setEnabled(false);
+            mHandler.post(mAndroidxConfig.isChecked() ? enabler : disabler);*/
         }
         return true;
     }

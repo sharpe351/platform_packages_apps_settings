@@ -1,5 +1,5 @@
 
-package com.android.settings.vanir.fragments;
+package com.android.settings.androidx.fragments;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -44,8 +44,8 @@ import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
-import com.vanir.util.CMDProcessor;
-import com.vanir.util.Helpers;
+import com.androidx.util.CMDProcessor;
+import com.androidx.util.Helpers;
 
 public class UserInterface extends SettingsPreferenceFragment {
 

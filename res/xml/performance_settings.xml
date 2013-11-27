@@ -19,11 +19,11 @@
     android:title="@string/performance_settings_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <SwitchPreference
+    <!-- <SwitchPreference
         android:key="vanir_config"
         android:title="@string/vanir_config_title"
         android:summary="@string/vanir_config_enabled_summary"
-        android:persistent="true" />
+        android:persistent="true" /> -->
 
     <PreferenceCategory
         android:title="@string/cpu_pref">
@@ -66,7 +66,7 @@
         android:summary="@string/pref_disable_bootanimation_summary" />
 
     <CheckBoxPreference
-        android:key="vanir_interface_recents_mem_display"
+        android:key="androidx_interface_recents_mem_display"
         android:title="@string/pref_recents_title"
         android:summary="@string/pref_recents_summary" />
 

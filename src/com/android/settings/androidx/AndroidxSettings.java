@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.vanir;
+package com.android.settings.androidx;
 
 import android.app.ActivityManagerNative;
 import android.content.Context;
@@ -30,15 +30,15 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class VanirSettings extends SettingsPreferenceFragment implements
+public class AndroidxSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "VanirSettings";
+    private static final String TAG = "AndroidxSettings";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.vanir_settings);
+        addPreferencesFromResource(R.xml.androidx_settings);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {

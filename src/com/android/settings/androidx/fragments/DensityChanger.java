@@ -1,5 +1,5 @@
 
-package com.android.settings.vanir.fragments;
+package com.android.settings.androidx.fragments;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -25,9 +25,9 @@ import android.widget.EditText;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
-import com.vanir.util.CMDProcessor;
-import com.vanir.util.CMDProcessor.CommandResult;
-import com.vanir.util.Helpers;
+import com.androidx.util.CMDProcessor;
+import com.androidx.util.CMDProcessor.CommandResult;
+import com.androidx.util.Helpers;
 
 public class DensityChanger extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {

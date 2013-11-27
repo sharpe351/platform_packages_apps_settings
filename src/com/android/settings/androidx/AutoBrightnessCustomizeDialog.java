@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.vanir;
+package com.android.settings.androidx;
 
 import android.app.AlertDialog;
 import android.content.Context;
