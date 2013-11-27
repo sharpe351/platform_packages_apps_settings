@@ -33,7 +33,7 @@ import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.vanir.util.Helpers;
+import com.androidx.util.Helpers;
 //import com.androidx.util.CMDProcessor;
 //import com.androidx.util.CMDProcessor.CommandResult;
 
@@ -104,7 +104,7 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements P
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        everenabled = savedInstanceState != null && savedInstanceState.containsKey("ever_enabled") && savedInstanceState.getBoolean("ever_enabled");
+        //everenabled = savedInstanceState != null && savedInstanceState.containsKey("ever_enabled") && savedInstanceState.getBoolean("ever_enabled");
 
         if (getPreferenceManager() != null) {
 
@@ -193,10 +193,10 @@ public class PerformanceSettings extends SettingsPreferenceFragment implements P
         return true;
     }
 
-    @Override
+    /*@Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
        super.onSaveInstanceState(savedInstanceState);
        savedInstanceState.putBoolean("ever_enabled", everenabled);
-    }
+    }*/
 
 }
