@@ -33,6 +33,12 @@
         android:fragment="com.android.settings.vanir.NotificationDrawerSettings"
         android:title="@string/notification_drawer_title" />
 
+    <Preference
+        android:fragment="com.android.settings.vanir.NotificationDrawerStyle"
+        android:key="notification_style"
+        android:title="@string/notification_title"
+        android:summary="@string/notification_summary" />
+
     <PreferenceScreen
         android:key="power_menu"
         android:title="@string/power_menu_title"
