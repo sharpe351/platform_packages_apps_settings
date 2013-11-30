@@ -1,26 +1,9 @@
-/*
- * Copyright (C) 2012 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.android.settings.widget;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.preference.Preference;
-import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +12,8 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.android.settings.ButtonBarHandler;
+
+import android.provider.Settings;
 
 public class SeekBarPreference extends Preference
         implements OnSeekBarChangeListener {
@@ -42,7 +26,8 @@ public class SeekBarPreference extends Preference
     private TextView monitorBox;
     private SeekBar bar;
 
-    int defaultValue = 100;
+    int defaultValue = 60;
+    boolean mDisablePercentageValue = false;
 
     private OnPreferenceChangeListener changer;
 
@@ -59,25 +44,27 @@ public class SeekBarPreference extends Preference
         bar = (SeekBar) layout.findViewById(R.id.seek_bar);
         int progress;
         try{
-         progress = (int) (Settings.System.getFloat(getContext().getContentResolver(), property) * 100);
-    }
-    catch (Exception e)
-        {
-        progress = defaultValue;
-    }
+            progress = (int) (Settings.System.getFloat(
+                    getContext().getContentResolver(), property) * 100);
+        } catch (Exception e) {
+            progress = defaultValue;
+        }
         bar.setOnSeekBarChangeListener(this);
         bar.setProgress(progress);
-        monitorBox.setText(progress + "%");
+        if (!mDisablePercentageValue) {
+            monitorBox.setText(progress + "%");
+        }
         return layout;
     }
 
     public void setInitValue(int progress) {
         defaultValue = progress;
-        if (bar!=null)
-        {
+        if (bar!=null) {
             bar.setProgress(progress);
-            monitorBox.setText(progress + "%");
-    }
+            if (!mDisablePercentageValue) {
+                monitorBox.setText(progress + "%");
+            }
+        }
     }
 
     @Override
@@ -87,7 +74,8 @@ public class SeekBarPreference extends Preference
     }
 
     @Override
-    public void setOnPreferenceChangeListener(OnPreferenceChangeListener onPreferenceChangeListener) {
+    public void setOnPreferenceChangeListener(
+                OnPreferenceChangeListener onPreferenceChangeListener) {
         changer = onPreferenceChangeListener;
         super.setOnPreferenceChangeListener(onPreferenceChangeListener);
     }
@@ -98,20 +86,27 @@ public class SeekBarPreference extends Preference
         progress = Math.round(((float) progress) / interval) * interval;
         seekBar.setProgress(progress);
 
-        monitorBox.setText(progress + "%");
+        if (!mDisablePercentageValue) {
+            monitorBox.setText(progress + "%");
+        }
         changer.onPreferenceChange(this, Integer.toString(progress));
     }
 
     public void setValue(int progress){
-        if (bar!=null)
-        {
+        if (bar!=null) {
             bar.setProgress(progress);
-            monitorBox.setText(progress + "%");
+            if (!mDisablePercentageValue) {
+                monitorBox.setText(progress + "%");
+            }
             changer.onPreferenceChange(this, Integer.toString(progress));
         }
     }
 
-    public void setProperty(String property){
+    public void disablePercentageValue(boolean disable) {
+        mDisablePercentageValue = disable;
+    }
+
+    public void setProperty(String property) {
         this.property = property;
     }
 
