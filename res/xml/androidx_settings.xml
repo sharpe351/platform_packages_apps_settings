@@ -28,6 +28,12 @@
         android:fragment="com.android.settings.androidx.StatusBar"
         android:title="@string/status_bar_title" />
 
+    <Preference
+        android:fragment="com.android.settings.androidx.NotificationDrawerStyle"
+        android:key="notification_style"
+        android:title="@string/notification_title"
+        android:summary="@string/notification_summary" />
+
     <PreferenceScreen
         android:key="power_menu"
         android:title="@string/power_menu_title"
