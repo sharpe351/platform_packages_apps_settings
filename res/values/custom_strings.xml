@@ -96,6 +96,7 @@
 
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
+    <string name="status_bar_summary">Status bar tweaks for battery, clock, and general settings</string>
     <string name="status_bar_style_title">Style</string>
     <string name="status_bar_general_title">General</string>
 
