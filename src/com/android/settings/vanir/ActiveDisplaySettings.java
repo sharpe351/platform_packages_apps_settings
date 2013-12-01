@@ -124,9 +124,10 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         mShowAmPmPref.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.ACTIVE_DISPLAY_SHOW_AMPM, 0) == 1));
 
+        int level = Settings.System.getInt(getContentResolver(),
+                Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, 100);
         mBrightnessLevel = (SeekBarPreference) findPreference(KEY_BRIGHTNESS);
-        mBrightnessLevel.setValue(Settings.System.getInt(getContentResolver(),
-                Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, 100));
+        mBrightnessLevel.setInitValue((int) (level));
         mBrightnessLevel.setOnPreferenceChangeListener(this);
 
         mDisplayTimeout = (ListPreference) prefSet.findPreference(KEY_TIMEOUT);
@@ -157,7 +158,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
                     ((Boolean) newValue).booleanValue() ? 1 : 0);
             return true;
         } else if (preference == mBrightnessLevel) {
-            int brightness = ((Integer)newValue).intValue();
+            int brightness = Integer.parseInt((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, brightness);
             return true;
