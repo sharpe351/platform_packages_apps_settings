@@ -53,6 +53,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_SHOW_DATE = "ad_show_date";
     private static final String KEY_SHOW_AMPM = "ad_show_ampm";
     private static final String KEY_BRIGHTNESS = "ad_brightness";
+    private static final String KEY_TIMEOUT = "ad_timeout";
 
     private SwitchPreference mEnabledPref;
     private CheckBoxPreference mShowTextPref;
@@ -65,6 +66,7 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
     private ListPreference mRedisplayPref;
     private SeekBarPreference mBrightnessLevel;
     private AppMultiSelectListPreference mExcludedAppsPref;
+    private ListPreference mDisplayTimeout;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,6 +130,13 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         mBrightnessLevel.setInitValue((int) (level));
         mBrightnessLevel.setOnPreferenceChangeListener(this);
 
+        mDisplayTimeout = (ListPreference) prefSet.findPreference(KEY_TIMEOUT);
+        mDisplayTimeout.setOnPreferenceChangeListener(this);
+        timeout = Settings.System.getLong(getContentResolver(),
+                Settings.System.ACTIVE_DISPLAY_TIMEOUT, 8000L);
+        mDisplayTimeout.setValue(String.valueOf(timeout));
+        updateTimeoutSummary(timeout);
+
         mExcludedAppsPref = (AppMultiSelectListPreference) findPreference(KEY_EXCLUDED_APPS);
         Set<String> excludedApps = getExcludedApps();
         if (excludedApps != null) mExcludedAppsPref.setValues(excludedApps);
@@ -152,6 +161,10 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
             int brightness = Integer.parseInt((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.ACTIVE_DISPLAY_BRIGHTNESS, brightness);
+            return true;
+        } else if (preference == mDisplayTimeout) {
+            long timeout = Integer.valueOf((String) newValue);
+            updateTimeoutSummary(timeout);
             return true;
         } else if (preference == mExcludedAppsPref) {
             storeExcludedApps((Set<String>) newValue);
@@ -212,6 +225,15 @@ public class ActiveDisplaySettings extends SettingsPreferenceFragment implements
         mRedisplayPref.setSummary(mRedisplayPref.getEntries()[mRedisplayPref.findIndexOfValue("" + value)]);
         Settings.System.putLong(getContentResolver(),
                 Settings.System.ACTIVE_DISPLAY_REDISPLAY, value);
+    }
+
+    private void updateTimeoutSummary(long value) {
+        try {
+            mDisplayTimeout.setSummary(mDisplayTimeout.getEntries()[mDisplayTimeout.findIndexOfValue("" + value)]);
+            Settings.System.putLong(getContentResolver(),
+                    Settings.System.ACTIVE_DISPLAY_TIMEOUT, value);
+        } catch (ArrayIndexOutOfBoundsException e) {
+        }
     }
 
     private boolean hasProximitySensor() {
