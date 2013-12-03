@@ -25,9 +25,9 @@
         android:summary="@string/status_bar_summary" />
 
     <PreferenceScreen
-        android:key="notification_drawer"
-        android:fragment="com.android.settings.slim.NotificationDrawerSettings"
-        android:title="@string/notification_drawer_title" />
+        android:key="notification_drawer_qs"
+        android:fragment="com.android.settings.slim.NotificationDrawerQsSettings"
+        android:title="@string/notification_drawer_qs_title" />
 
     <Preference
         android:key="lcd_density_setup"
