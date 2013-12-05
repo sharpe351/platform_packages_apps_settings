@@ -157,8 +157,7 @@
     <string name="title_quick_pulldown">Quick pulldown</string>
 
     <!-- Volume adjust sounds -->
-    <string name="volume_adjust_sounds_enable_title">Volume adjust sound</string>
-    <string name="volume_adjust_sounds_enable_summary">Play sound when adjusting volume with hard keys</string>
+    <string name="volume_adjust_sounds_enable_summary">Play sound while adjusting the volume</string>
 
     <!-- Link volumes -->
     <string name="link_volume_ringtones">Link ringtone &amp; notifications volumes</string>
