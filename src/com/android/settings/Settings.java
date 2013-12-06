@@ -84,6 +84,8 @@ import com.android.settings.nfc.PaymentSettings;
 import com.android.settings.print.PrintJobSettingsFragment;
 import com.android.settings.print.PrintServiceSettingsFragment;
 import com.android.settings.print.PrintSettingsFragment;
+import com.android.settings.androidx.BatteryIconStyle;
+import com.android.settings.androidx.DisplayRotation;
 import com.android.settings.tts.TextToSpeechSettings;
 import com.android.settings.users.UserSettings;
 import com.android.settings.vpn2.VpnSettings;
@@ -351,7 +353,9 @@ public class Settings extends PreferenceActivity
         PrintJobSettingsFragment.class.getName(),
         TrustedCredentialsSettings.class.getName(),
         PaymentSettings.class.getName(),
-        KeyboardLayoutPickerFragment.class.getName()
+        KeyboardLayoutPickerFragment.class.getName(),
+        BatteryIconStyle.class.getName(),
+        DisplayRotation.class.getName()
     };
 
     @Override
@@ -1110,4 +1114,6 @@ public class Settings extends PreferenceActivity
     public static class PaymentSettingsActivity extends Settings { /* empty */ }
     public static class PrintSettingsActivity extends Settings { /* empty */ }
     public static class PrintJobSettingsActivity extends Settings { /* empty */ }
+    public static class BatteryIconStyleSettingsActivity extends Settings { /* empty */ }
+    public static class DisplayRotationSettingsActivity extends Settings { /* empty */ }
 }

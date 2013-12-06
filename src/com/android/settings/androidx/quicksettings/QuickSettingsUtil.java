@@ -148,6 +148,7 @@ public class QuickSettingsUtil {
         ENABLED_TILES.remove(id);
         DISABLED_TILES.remove(id);
         TILES_DEFAULT.remove(id);
+Log.e("qsUtil", "finally removed current tile: " + id);
     }
 
     private static void disableTile(String id) {
@@ -179,12 +180,6 @@ public class QuickSettingsUtil {
         if (!DeviceUtils.deviceSupportsNfc(context)) {
             removeTile(TILE_NFC);
         }
-
-        // Don't show the Torch tile if not supported
-        if (!DeviceUtils.deviceSupportsTorch(context)) {
-            removeTile(TILE_TORCH);
-        }
-
     }
 
     private static synchronized void refreshAvailableTiles(Context context) {

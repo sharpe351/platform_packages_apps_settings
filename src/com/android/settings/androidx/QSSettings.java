@@ -30,6 +30,7 @@ import android.provider.Settings;
 import com.android.internal.util.slim.DeviceUtils;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.androidx.quicksettings.QuickSettingsUtil;
 import com.android.settings.R;
 
 public class QSSettings extends SettingsPreferenceFragment
@@ -60,6 +61,12 @@ public class QSSettings extends SettingsPreferenceFragment
             mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
             updatePulldownSummary(quickPulldownValue);
         }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        QuickSettingsUtil.updateAvailableTiles(getActivity());
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
