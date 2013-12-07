@@ -278,6 +278,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     @Override
     public void onPause() {
         super.onPause();
+
+        getContentResolver().unregisterContentObserver(mAccelerometerRotationObserver);
     }
 
     @Override
