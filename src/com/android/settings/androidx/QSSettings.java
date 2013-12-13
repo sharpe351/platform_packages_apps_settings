@@ -20,6 +20,7 @@ import android.content.ContentResolver;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -39,8 +40,10 @@ public class QSSettings extends SettingsPreferenceFragment
     public static final String TAG = "QSSettings";
 
     private static final String QUICK_PULLDOWN = "quick_pulldown";
+    private static final String PREF_FLIP_QS_TILES = "flip_qs_tiles";
 
     ListPreference mQuickPulldown;
+    private CheckBoxPreference mFlipQsTiles;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,6 +64,10 @@ public class QSSettings extends SettingsPreferenceFragment
             mQuickPulldown.setValue(String.valueOf(quickPulldownValue));
             updatePulldownSummary(quickPulldownValue);
         }
+
+        mFlipQsTiles = (CheckBoxPreference) findPreference(PREF_FLIP_QS_TILES);
+        mFlipQsTiles.setChecked(Settings.System.getInt(resolver,
+                Settings.System.QUICK_SETTINGS_TILES_FLIP, 1) == 1);
     }
 
     @Override
@@ -76,6 +83,11 @@ public class QSSettings extends SettingsPreferenceFragment
             Settings.System.putInt(resolver, Settings.System.QS_QUICK_PULLDOWN,
                     quickPulldownValue);
             updatePulldownSummary(quickPulldownValue);
+            return true;
+        } else if (preference == mFlipQsTiles) {
+            Settings.System.putInt(resolver,
+                    Settings.System.QUICK_SETTINGS_TILES_FLIP,
+                    ((CheckBoxPreference) preference).isChecked() ? 1 : 0);
             return true;
         }
         return false;
