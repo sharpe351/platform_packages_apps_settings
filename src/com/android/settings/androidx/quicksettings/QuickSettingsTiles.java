@@ -16,6 +16,8 @@
 
 package com.android.settings.androidx.quicksettings;
 
+import static com.android.internal.util.slim.QSConstants.TILE_DELIMITER;
+
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -60,7 +62,9 @@ import java.util.Comparator;
 
 public class QuickSettingsTiles extends Fragment {
 
-    private static final int MENU_RESET = Menu.FIRST;
+    private static final int MENU_RESET         = Menu.FIRST;
+    private static final int MENU_DYNAMICTILES  = MENU_RESET + 1;
+    private static final int MENU_HELP          = MENU_DYNAMICTILES + 1;
 
     private static final String SEPARATOR = "OV=I=XseparatorX=I=VO";
 
@@ -70,6 +74,8 @@ public class QuickSettingsTiles extends Fragment {
     private static final int DLG_RINGER        = 3;
     private static final int DLG_MUSIC         = 4;
     private static final int DLG_SHOW_LIST     = 5;
+    private static final int DLG_HELP          = 6;
+    private static final int DLG_DYNAMICTILES  = 7;
 
     private DraggableGridView mDragView;
     private ViewGroup mContainer;
@@ -296,6 +302,12 @@ public class QuickSettingsTiles extends Fragment {
         menu.add(0, MENU_RESET, 0, R.string.reset)
                 .setIcon(R.drawable.ic_settings_backup) // use the backup icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(0, MENU_DYNAMICTILES, 0, R.string.dynamic_tiles_title)
+                .setIcon(R.drawable.ic_settings_dynamic_tiles)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(0, MENU_HELP, 0, R.string.help_label)
+                .setIcon(R.drawable.ic_settings_about)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
     @Override
@@ -303,6 +315,12 @@ public class QuickSettingsTiles extends Fragment {
         switch (item.getItemId()) {
             case MENU_RESET:
                 showDialogInner(DLG_RESET);
+                return true;
+            case MENU_DYNAMICTILES:
+                showDialogInner(DLG_DYNAMICTILES);
+                return true;
+            case MENU_HELP:
+                showDialogInner(DLG_HELP);
                 return true;
             default:
                 return false;
@@ -340,6 +358,17 @@ public class QuickSettingsTiles extends Fragment {
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             int id = getArguments().getInt("id");
             switch (id) {
+                case DLG_HELP:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.help_label)
+                    .setMessage(R.string.help_qs_message)
+                    .setNegativeButton(R.string.dlg_ok,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    })
+                    .create();
                 case DLG_RESET:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.reset)
@@ -532,6 +561,68 @@ public class QuickSettingsTiles extends Fragment {
                                 QuickSettingsUtil.TILES.get(
                                     getOwner().mTileAdapter.getTileId(position));
                             getOwner().addTile(info.getTitleResId(), info.getIcon(), 0, true);
+                        }
+                    })
+                    .create();
+                case DLG_DYNAMICTILES:
+                    final ArrayList<String> allTiles =
+                        QuickSettingsUtil.getAllDynamicTiles(getActivity());
+                    String dynamicTiles = Settings.System.getStringForUser(
+                            getActivity().getContentResolver(),
+                            Settings.System.QUICK_SETTINGS_DYNAMIC_TILES,
+                            UserHandle.USER_CURRENT);
+                    if (dynamicTiles == null) {
+                        // default all dynamic tiles are turned on
+                        dynamicTiles = TextUtils.join(TILE_DELIMITER, allTiles);
+                    }
+
+                    final ArrayList<String> actualEntries = new ArrayList<String>();
+                    final ArrayList<Boolean> actualTilesStatus = new ArrayList<Boolean>();
+
+                    boolean detected;
+                    for (String tile : allTiles) {
+                        detected = false;
+                        for (String actualTile : dynamicTiles.split(
+                                "\\" + TILE_DELIMITER)) {
+                            if (tile.equals(actualTile)) {
+                                detected = true;
+                            }
+                        }
+                        actualTilesStatus.add(detected);
+                        actualEntries.add(
+                            QuickSettingsUtil.getDynamicTileDescription(getActivity(), tile));
+                    }
+
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.dynamic_tiles_title)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setMultiChoiceItems(
+                        actualEntries.toArray(new String[actualEntries.size()]),
+                        QuickSettingsUtil.toPrimitiveArray(actualTilesStatus),
+                        new  DialogInterface.OnMultiChoiceClickListener() {
+                        public void onClick(DialogInterface dialog, int indexSelected,
+                                boolean isChecked) {
+                            actualTilesStatus.set(indexSelected, isChecked);
+                        }
+                    })
+                    .setPositiveButton(R.string.dlg_ok,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            String savedTiles = "";
+                            for (int i = 0; i < actualTilesStatus.size(); i++) {
+                                if (actualTilesStatus.get(i)) {
+                                    savedTiles += allTiles.get(i);
+                                    savedTiles += TILE_DELIMITER;
+                                }
+                            }
+                            if (!savedTiles.isEmpty()) {
+                                savedTiles = savedTiles.substring(0, savedTiles.length() - 1);
+                            }
+                            Settings.System.putString(
+                                getActivity().getContentResolver(),
+                                Settings.System.QUICK_SETTINGS_DYNAMIC_TILES,
+                                savedTiles);
                         }
                     })
                     .create();
