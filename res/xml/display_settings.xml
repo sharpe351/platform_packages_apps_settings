@@ -67,11 +67,6 @@
             android:summary="@string/ad_settings_summary">
         </PreferenceScreen>
 
-        <PreferenceScreen
-            android:key="general_ui_settings"
-            android:fragment="com.android.settings.androidx.fragments.UserInterface"
-            android:title="@string/lcd_density_title" />
-
         <PreferenceCategory
             android:key="category_animation_options"
             android:title="@string/display_category_animation_options_title" >

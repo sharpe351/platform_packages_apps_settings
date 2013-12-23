@@ -36,6 +36,11 @@
         android:title="@string/quicksettings_tiles_style"
         android:summary="@string/summary_quicksettings_tiles_style" />
 
+    <Preference
+        android:key="lcd_density_setup"
+        android:title="@string/lcd_density_title"
+        android:summary="@string/lcd_density_summary" />
+
     <PreferenceScreen
         android:key="power_menu"
         android:title="@string/power_menu_title"

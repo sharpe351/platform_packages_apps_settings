@@ -36,7 +36,7 @@ import android.view.MenuItem;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.Utils;
-import com.vanir.util.Helpers;
+import com.androidx.util.Helpers;
 
 public class QuickSettingsTilesStyle extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {

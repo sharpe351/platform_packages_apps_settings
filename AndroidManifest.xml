@@ -1579,8 +1579,6 @@
         <activity android:name=".androidx.PowerMenu" />
 
         <!-- LCD changer -->
-        <activity android:name=".androidx.fragments.UserInterface" />
-
         <activity
             android:name=".androidx.fragments.DensityChanger"
             android:label="@string/lcd_density_wizard" >
