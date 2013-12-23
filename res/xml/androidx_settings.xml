@@ -31,6 +31,12 @@
         android:summary="@string/notification_summary" />
 
     <PreferenceScreen
+        android:key="quicksettings_tiles_style"
+        android:fragment="com.android.settings.androidx.QuickSettingsTilesStyle"
+        android:title="@string/quicksettings_tiles_style"
+        android:summary="@string/summary_quicksettings_tiles_style" />
+
+    <PreferenceScreen
         android:key="power_menu"
         android:title="@string/power_menu_title"
         android:fragment="com.android.settings.androidx.PowerMenu"
