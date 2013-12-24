@@ -523,4 +523,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="tiles_per_row_duplicate_landscape_title">Scale landscape quantity</string>
     <string name="tiles_per_row_duplicate_landscape_summary">Landscape view doubles tiles per row quantity</string>
 
+    <!-- Theme Chooser -->
+    <string name="themes_title">Themes</string>
+
 </resources>
