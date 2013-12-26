@@ -454,4 +454,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
 
     <!-- Theme Chooser -->
     <string name="themes_title">Themes</string>
+
+    <!-- Recents membar -->
+    <string name="pref_recents_title">Enhance recents panel</string>
+    <string name="pref_recents_summary">Add a memory usage bar to the recents panel</string>
 </resources>
