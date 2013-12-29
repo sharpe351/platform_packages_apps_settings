@@ -31,10 +31,10 @@
         android:summary="@string/notification_summary" />
 
     <PreferenceScreen
-        android:key="quicksettings_tiles_style"
-        android:fragment="com.android.settings.androidx.QuickSettingsTilesStyle"
-        android:title="@string/quicksettings_tiles_style"
-        android:summary="@string/summary_quicksettings_tiles_style" />
+        android:key="power_menu"
+        android:title="@string/power_menu_title"
+        android:fragment="com.android.settings.androidx.PowerMenu"
+        android:summary="@string/power_menu_summary" />
 
     <Preference
         android:key="lcd_density_setup"
@@ -45,12 +45,6 @@
         android:key="recents_mem_display"
         android:title="@string/pref_recents_title"
         android:summary="@string/pref_recents_summary" />
-
-    <PreferenceScreen
-        android:key="power_menu"
-        android:title="@string/power_menu_title"
-        android:fragment="com.android.settings.androidx.PowerMenu"
-        android:summary="@string/power_menu_summary" />
 
     <PreferenceCategory
         android:key="category_animation_options"
