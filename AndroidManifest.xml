@@ -1656,7 +1656,6 @@
         />
         <!-- Android X Start -->
         <activity android:name=".androidx.AndroidxSettings" />
-        <activity android:name=".androidx.PowerMenu" />
 
         <!-- LCD changer -->
         <activity

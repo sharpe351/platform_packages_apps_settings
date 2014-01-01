@@ -24,6 +24,7 @@
         <attr name="strokeWidth" format="dimension" />
         <attr name="markerSize" format="dimension" />
         <attr name="margin" format="dimension" />
+    </declare-styleable>
 
     <declare-styleable name="DragSortListView">
         <attr name="collapsedHeight" format="dimension" />

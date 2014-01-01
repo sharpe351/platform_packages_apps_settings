@@ -25,15 +25,6 @@
     <string name="default_string">Default</string>
     <string name="additional_options_title">Additional options</string>
 
-    <!-- Power menu enable disable -->
-    <string name="power_menu_title">Power menu</string>
-    <string name="power_menu_summary">Enables reboot, screenshot, airplane mode, and sound panel for the power menu</string>
-    <string name="power_menu_reboot_title">Reboot menu</string>
-    <string name="power_menu_screenshot_title">Screenshot</string>
-    <string name="power_menu_screenrecord_title">Screen record</string>
-    <string name="power_menu_airplane_title">Airplane mode</string>
-    <string name="power_menu_silent_title">Sound panel</string>
-
     <!-- Display settings screen, notification light settings -->
     <string name="display_category_light_options_title">Light options</string>
     <string name="notification_light_general_title">General</string>
