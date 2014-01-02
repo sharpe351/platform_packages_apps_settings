@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.quicksettings;
+package com.android.settings.androidx.quicksettings;
 
 import java.util.Collections;
 import java.util.ArrayList;

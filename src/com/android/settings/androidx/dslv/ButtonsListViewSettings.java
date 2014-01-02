@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.dslv;
+package com.android.settings.androidx.dslv;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -62,9 +62,9 @@ import com.android.internal.util.slim.PolicyHelper;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
-import com.android.settings.slim.dslv.DragSortListView;
-import com.android.settings.slim.dslv.DragSortController;
-import com.android.settings.slim.util.ShortcutPickerHelper;
+import com.android.settings.androidx.dslv.DragSortListView;
+import com.android.settings.androidx.dslv.DragSortController;
+import com.android.settings.androidx.util.ShortcutPickerHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -494,9 +494,6 @@ public class ButtonsListViewSettings extends ListFragment implements
             case POWER_MENU_SHORTCUT:
                 PolicyHelper.setPowerMenuConfig(mActivity, buttonConfigs, reset);
                 break;
-            case LOCKSCREEN_SHORTCUT:
-                ButtonsHelper.setLockscreenShortcutConfig(mActivity, buttonConfigs, reset);
-                break;
         }
     }
 
@@ -732,7 +729,7 @@ public class ButtonsListViewSettings extends ListFragment implements
                                     getOwner().mPendingIndex = which;
                                     getOwner().mPendingLongpress = longpress;
                                     getOwner().mPendingNewButton = newButton;
-                                    getOwner().mPicker.pickShortcut(getOwner().getId());
+                                    getOwner().mPicker.pickShortcut();
                                 }
                             } else {
                                 if (newButton) {

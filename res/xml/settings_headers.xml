@@ -66,13 +66,6 @@
         android:fragment="com.android.settings.androidx.AndroidxSettings"
         android:title="@string/androidx_settings_title" />
 
-    <!-- Navigation -->
-    <header
-        android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_settings_navigation"
-        android:fragment="com.android.settings.slim.NavigationSettings"
-        android:title="@string/navigation_settings_title" />
-
     <!-- Theme chooser -->
     <header
         android:icon="@drawable/ic_settings_themes"

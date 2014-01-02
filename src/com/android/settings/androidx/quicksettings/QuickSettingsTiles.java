@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.quicksettings;
+package com.android.settings.androidx.quicksettings;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -49,7 +49,7 @@ import android.widget.TextView;
 import com.android.internal.util.slim.DeviceUtils;
 import com.android.internal.util.slim.QSConstants;
 import com.android.settings.R;
-import com.android.settings.slim.quicksettings.QuickSettingsUtil.TileInfo;
+import com.android.settings.androidx.quicksettings.QuickSettingsUtil.TileInfo;
 
 import android.util.Log;
 

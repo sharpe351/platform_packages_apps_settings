@@ -14,16 +14,11 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.fragments;
+package com.android.settings.androidx.fragments;
 
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.Preference;
-import android.preference.PreferenceScreen;
-import android.preference.ListPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,13 +27,14 @@ import android.widget.ListView;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class PowerMenuFragment extends SettingsPreferenceFragment {
+public class NavbarButtonFragment extends SettingsPreferenceFragment implements
+        OnPreferenceChangeListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.power_menu_fragment);
+        addPreferencesFromResource(R.xml.navbar_button_fragment);
     }
 
     @Override
@@ -55,4 +51,8 @@ public class PowerMenuFragment extends SettingsPreferenceFragment {
         return view;
     }
 
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        return false;
+    }
 }

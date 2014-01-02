@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.util;
+package com.android.settings.androidx.util;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 

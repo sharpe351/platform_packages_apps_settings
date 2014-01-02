@@ -697,6 +697,7 @@
         <item>@string/shortcut_action_power_off</item>
         <item>@string/shortcut_action_reboot</item>
         <item>@string/shortcut_action_screenshot</item>
+        <item>@string/shortcut_action_screenrecord</item>
         <item>@string/shortcut_action_sound</item>
     </string-array>
 
@@ -707,6 +708,7 @@
         <item>**poweroff**</item>
         <item>**reboot**</item>
         <item>**screenshot**</item>
+        <item>**screenrecord**</item>
         <item>**sound**</item>
     </string-array>
 

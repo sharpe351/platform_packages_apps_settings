@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim;
+package com.android.settings.androidx;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -30,26 +30,21 @@ import com.android.internal.util.slim.DeviceUtils;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
-import com.android.settings.widget.SeekBarPreference;
 
-public class NotificationDrawerQsSettings extends SettingsPreferenceFragment
+public class NotificationDrawerSettings extends SettingsPreferenceFragment
             implements OnPreferenceChangeListener  {
 
     public static final String TAG = "NotificationDrawerSettings";
-
-    private static final String PREF_NOTIFICATION_HIDE_CARRIER =
-            "notification_hide_carrier";
-    private static final String PREF_NOTIFICATION_ALPHA =
-            "notification_alpha";
+    private static final String PREF_NOTIFICATION_OPTIONS = "options";
+    private static final String PREF_NOTIFICATION_HIDE_CARRIER = "notification_hide_carrier";
 
     CheckBoxPreference mHideCarrier;
-    SeekBarPreference mNotificationAlpha;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Load the preferences from an XML resource
-        addPreferencesFromResource(R.xml.notification_drawer_qs_settings);
+        addPreferencesFromResource(R.xml.notification_drawer_settings);
 
         PreferenceScreen prefs = getPreferenceScreen();
 
@@ -59,6 +54,9 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment
         mHideCarrier.setChecked(hideCarrier);
         mHideCarrier.setOnPreferenceChangeListener(this);
 
+        PreferenceCategory additionalOptions =
+            (PreferenceCategory) prefs.findPreference(PREF_NOTIFICATION_OPTIONS);
+
         PackageManager pm = getPackageManager();
         boolean isMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
 
@@ -66,22 +64,10 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment
             || !DeviceUtils.deviceSupportsMobileData(getActivity())) {
             // Nothing for tablets, large screen devices and non mobile devices which doesn't show
             // information in notification drawer.....remove options
-            prefs.removePreference(mHideCarrier);
+            additionalOptions.removePreference(mHideCarrier);
+            prefs.removePreference(additionalOptions);
         }
 
-        float transparency;
-        try{
-            transparency = Settings.System.getFloat(getContentResolver(),
-                    Settings.System.NOTIFICATION_ALPHA);
-        } catch (Exception e) {
-            transparency = 0;
-            Settings.System.putFloat(getContentResolver(),
-                    Settings.System.NOTIFICATION_ALPHA, 0.0f);
-        }
-        mNotificationAlpha = (SeekBarPreference) findPreference(PREF_NOTIFICATION_ALPHA);
-        mNotificationAlpha.setInitValue((int) (transparency * 100));
-        mNotificationAlpha.setProperty(Settings.System.NOTIFICATION_ALPHA);
-        mNotificationAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -95,11 +81,6 @@ public class NotificationDrawerQsSettings extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.NOTIFICATION_HIDE_CARRIER,
                     (Boolean) newValue ? 1 : 0);
-            return true;
-        } else if (preference == mNotificationAlpha) {
-            float valNav = Float.parseFloat((String) newValue);
-            Settings.System.putFloat(getContentResolver(),
-                    Settings.System.NOTIFICATION_ALPHA, valNav / 100);
             return true;
         }
         return false;

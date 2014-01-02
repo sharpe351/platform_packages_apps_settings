@@ -20,6 +20,7 @@
     <string name="androidx_settings_title">Android X Customizations</string>
     <string name="ok">OK</string>
     <string name="reset">Reset</string>
+    <string name="attention">Attention</string>
     <string name="misc_short">Misc</string>
     <string name="enabled">Enabled</string>
     <string name="default_string">Default</string>
@@ -418,6 +419,7 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcut_action_lastapp">Last app</string>
     <string name="shortcut_action_search">Search</string>
     <string name="shortcut_action_screenshot">Screenshot</string>
+    <string name="shortcut_action_screenrecord">Screenrecord</string>
     <string name="shortcut_action_menu">Menu</string>
     <string name="shortcut_action_ime">Open IME Switcher</string>
     <string name="shortcut_action_kill">Kill app</string>
@@ -521,8 +523,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="shortcuts_color_mode_summary">Change the shorcuts icon color mode</string>
 
     <!-- Notification drawer settings  -->
-    <string name="notification_drawer_qs_title">Notification drawer and quick settings</string>
     <string name="notification_drawer_title">Notification drawer</string>
+    <string name="notification_drawer_summary">Notification drawer color, transparency, and shortcuts</string>
     <string name="notification_hide_carrier_title">Hide network label</string>
     <string name="notification_hide_carrier_summary">Hide carrier and Wi-Fi label on the notification drawer</string>
     <string name="notification_shortcuts_settings_title">Shortcuts</string>
@@ -531,7 +533,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <!-- Navigation settings -->
     <string name="navigation_settings_options_title">Navigation options</string>
     <string name="navigation_settings_title">Navigation</string>
-    <string name="power_menu_title">Global menu</string>
+    <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_summary">Add power menu shortcuts and global menu colors</string>
 
     <!-- Power menu -->
     <string name="power_menu_style_summary">Change global menu colors</string>
@@ -623,6 +626,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="tiles_reset_message">Restore the default displayed tiles and layout?</string>
 
     <!-- QuickSettings style options -->
+    <string name="qs_title">QuickSettings</string>
+    <string name="qs_summary">Add or remove tiles adjust colors or rows</string>
     <string name="quicksettings_tiles_style">Style</string>
     <string name="summary_quicksettings_tiles_style">View or change quick settings style options</string>
     <string name="quicksettings_tiles_style_additional_options">Additional options</string>

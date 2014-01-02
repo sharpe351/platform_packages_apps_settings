@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.quicksettings;
+package com.android.settings.androidx.quicksettings;
 
 import static com.android.internal.util.slim.QSConstants.TILES_DEFAULT;
 import static com.android.internal.util.slim.QSConstants.TILE_AIRPLANE;
