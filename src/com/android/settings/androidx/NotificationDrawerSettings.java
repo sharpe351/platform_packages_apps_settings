@@ -17,6 +17,7 @@
 package com.android.settings.androidx;
 
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
@@ -36,9 +37,9 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment
 
     public static final String TAG = "NotificationDrawerSettings";
     private static final String PREF_NOTIFICATION_OPTIONS = "options";
-    private static final String PREF_NOTIFICATION_HIDE_CARRIER = "notification_hide_carrier";
+    private static final String PREF_NOTIFICATION_HIDE_LABELS = "notification_hide_labels";
 
-    CheckBoxPreference mHideCarrier;
+    ListPreference mHideLabels;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,11 +49,12 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment
 
         PreferenceScreen prefs = getPreferenceScreen();
 
-        mHideCarrier = (CheckBoxPreference) findPreference(PREF_NOTIFICATION_HIDE_CARRIER);
-        boolean hideCarrier = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.NOTIFICATION_HIDE_CARRIER, 0) == 1;
-        mHideCarrier.setChecked(hideCarrier);
-        mHideCarrier.setOnPreferenceChangeListener(this);
+        mHideLabels = (ListPreference) findPreference(PREF_NOTIFICATION_HIDE_LABELS);
+        int hideCarrier = Settings.System.getInt(getContentResolver(),
+                Settings.System.NOTIFICATION_HIDE_LABELS, 0);
+        mHideLabels.setValue(String.valueOf(hideCarrier));
+        mHideLabels.setOnPreferenceChangeListener(this);
+        updateHideNotificationLabelsSummary(hideCarrier);
 
         PreferenceCategory additionalOptions =
             (PreferenceCategory) prefs.findPreference(PREF_NOTIFICATION_OPTIONS);
@@ -60,14 +62,14 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment
         PackageManager pm = getPackageManager();
         boolean isMobileData = pm.hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
 
+        /* Tablet case in handled in PhoneStatusBar
         if (!DeviceUtils.isPhone(getActivity())
             || !DeviceUtils.deviceSupportsMobileData(getActivity())) {
             // Nothing for tablets, large screen devices and non mobile devices which doesn't show
             // information in notification drawer.....remove options
             additionalOptions.removePreference(mHideCarrier);
             prefs.removePreference(additionalOptions);
-        }
-
+        }*/
     }
 
     @Override
@@ -77,13 +79,34 @@ public class NotificationDrawerSettings extends SettingsPreferenceFragment
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mHideCarrier) {
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.NOTIFICATION_HIDE_CARRIER,
-                    (Boolean) newValue ? 1 : 0);
+        if (preference == mHideLabels) {
+            int hideLabels = Integer.valueOf((String) newValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.NOTIFICATION_HIDE_LABELS,
+                    hideLabels);
+            updateHideNotificationLabelsSummary(hideLabels);
             return true;
         }
         return false;
     }
 
+    private void updateHideNotificationLabelsSummary(int value) {
+        Resources res = getResources();
+
+        StringBuilder text = new StringBuilder();
+
+        switch (value) {
+        case 1  : text.append(res.getString(R.string.notification_hide_labels_carrier));
+                break;
+        case 2  : text.append(res.getString(R.string.notification_hide_labels_wifi));
+                break;
+        case 3  : text.append(res.getString(R.string.notification_hide_labels_all));
+                break;
+        default : text.append(res.getString(R.string.notification_hide_labels_disable));
+                break;
+        }
+
+        text.append(" " + res.getString(R.string.notification_hide_labels_text));
+
+        mHideLabels.setSummary(text.toString());
+    }
 }

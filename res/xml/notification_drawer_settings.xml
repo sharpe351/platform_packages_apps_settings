@@ -32,20 +32,21 @@
      </PreferenceScreen>
 
      <Preference
-         android:fragment="com.android.settings.androidx.NotificationDrawerStyle"
-         android:key="notification_style"
-         android:title="@string/notification_style_title"
-         android:summary="@string/notification_style_summary" />
+        android:fragment="com.android.settings.androidx.NotificationDrawerStyle"
+        android:key="notification_style"
+        android:title="@string/notification_style_title"
+        android:summary="@string/notification_style_summary" />
 
     <PreferenceCategory
         android:key="options"
         android:title="@string/additional_options_title">
 
-     <CheckBoxPreference
-         android:key="notification_hide_carrier"
-         android:title="@string/notification_hide_carrier_title"
-         android:summary="@string/notification_hide_carrier_summary"
-         android:defaultValue="false" />
+    <ListPreference
+        android:key="notification_hide_labels"
+        android:title="@string/notification_hide_labels_title"
+        android:entries="@array/notification_hide_labels_entries"
+        android:entryValues="@array/notification_hide_labels_values"
+        android:persistent="false" />
 
     </PreferenceCategory>
 
