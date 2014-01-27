@@ -21,6 +21,7 @@ import static com.android.internal.util.slim.QSConstants.TILE_CONTACT;
 import static com.android.internal.util.slim.QSConstants.TILE_CUSTOM_KEY;
 import static com.android.internal.util.slim.QSConstants.TILE_DELIMITER;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
