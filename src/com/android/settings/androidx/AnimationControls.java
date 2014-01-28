@@ -100,20 +100,20 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
         //ListView Animations
         mListViewAnimation = (ListPreference) findPreference(LISTVIEW_ANIMATIONS);
         int listviewanimation = Settings.System.getInt(getActivity().getContentResolver(),
-            Settings.System.LISTVIEW_ANIMATIONS, 1);
+            Settings.System.LISTVIEW_ANIMATIONS, 3);
         mListViewAnimation.setValue(String.valueOf(listviewanimation));
         mListViewAnimation.setSummary(mListViewAnimation.getEntry());
         mListViewAnimation.setOnPreferenceChangeListener(this);
 
         mListViewInterpolator = (ListPreference) findPreference(LISTVIEW_INTERPOLATOR);
         int listviewinterpolator = Settings.System.getInt(getActivity().getContentResolver(),
-            Settings.System.LISTVIEW_INTERPOLATOR, 0);
+            Settings.System.LISTVIEW_INTERPOLATOR, 6);
         mListViewInterpolator.setValue(String.valueOf(listviewinterpolator));
         mListViewInterpolator.setSummary(mListViewInterpolator.getEntry());
         mListViewInterpolator.setOnPreferenceChangeListener(this); 
 
         int mDuration = Settings.System.getInt(getContentResolver(),
-                Settings.System.LISTVIEW_SCROLL_DURATION, 0);
+                Settings.System.LISTVIEW_SCROLL_DURATION, 25);
         mListViewDuration = (AnimBarPreference) findPreference(LISTVIEW_DURATION);
         mListViewDuration.setInitValue((int) (mDuration));
         mListViewDuration.setOnPreferenceChangeListener(this);

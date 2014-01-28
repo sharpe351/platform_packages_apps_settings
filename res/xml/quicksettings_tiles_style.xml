@@ -24,7 +24,7 @@
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="quick_tiles_bg_color"
              android:title="@string/quick_tiles_bg_color_title"
-             android:defaultValue="0xff161616" />
+             android:defaultValue="0xff080808" />
 
         <net.margaritov.preference.colorpicker.ColorPickerPreference
              android:key="quick_tiles_bg_pressed_color"
@@ -50,7 +50,8 @@
             android:key="tiles_per_row"
             android:entries="@array/tiles_per_row_entries"
             android:entryValues="@array/tiles_per_row_values"
-            android:title="@string/tiles_per_row_title" />
+            android:title="@string/tiles_per_row_title"
+            android:defaultValue="4" />
 
         <CheckBoxPreference
             android:key="tiles_per_row_duplicate_landscape"

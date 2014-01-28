@@ -36,11 +36,13 @@
             android:title="@string/title_quick_pulldown"
             android:entries="@array/quick_pulldown_entries"
             android:entryValues="@array/quick_pulldown_values"
-            android:persistent="false" />
+            android:persistent="false"
+            android:defaultValue="1" />
 
         <CheckBoxPreference
             android:key="flip_qs_tiles"
             android:title="@string/flip_qs_tiles_title"
-            android:summary="@string/flip_qs_tiles_summary" />
+            android:summary="@string/flip_qs_tiles_summary"
+            android:defaultValue="true" />
 
 </PreferenceScreen>
