@@ -85,9 +85,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private static final String KEY_NOTIFICATION_ACCESS = "manage_notification_access";
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
 
-    // Omni Additions
-    private static final String BATTERY_AROUND_LOCKSCREEN_RING = "battery_around_lockscreen_ring";
-
     private PackageManager mPM;
     private DevicePolicyManager mDPM;
 
@@ -107,7 +104,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
     private DialogInterface mWarnInstallApps;
     private CheckBoxPreference mToggleVerifyApps;
     private CheckBoxPreference mPowerButtonInstantlyLocks;
-    private Preference mEnableKeyguardWidgets;
+    private CheckBoxPreference mEnableKeyguardWidgets;
 
     private Preference mNotificationAccess;
 
@@ -116,9 +113,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
     public SecuritySettings() {
         super(null /* Don't ask for restrictions pin on creation. */);
     }
-
-    // Omni Additions
-    private CheckBoxPreference mLockRingBattery;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -209,14 +203,6 @@ public class SecuritySettings extends RestrictedSettingsFragment
             updateLockAfterPreferenceSummary();
         }
 
-        // Add the additional Omni settings
-        mLockRingBattery = (CheckBoxPreference) root
-                .findPreference(BATTERY_AROUND_LOCKSCREEN_RING);
-        if (mLockRingBattery != null) {
-            mLockRingBattery.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, 0) == 1);
-        }
-
         // biometric weak liveliness
         mBiometricWeakLiveliness =
                 (CheckBoxPreference) root.findPreference(KEY_BIOMETRIC_WEAK_LIVELINESS);
@@ -256,9 +242,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
             }
         }
 
-        // Link to widget settings showing summary about the actual status
-        // and remove them on low memory devices
-        mEnableKeyguardWidgets = root.findPreference(KEY_ENABLE_WIDGETS);
+        // Enable or disable keyguard widget checkbox based on DPM state
+        mEnableKeyguardWidgets = (CheckBoxPreference) root.findPreference(KEY_ENABLE_WIDGETS);
         if (mEnableKeyguardWidgets != null) {
             if (ActivityManager.isLowRamDeviceStatic()
                     || mLockPatternUtils.isLockScreenDisabled()) {
@@ -275,6 +260,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
                 if (disabled) {
                     mEnableKeyguardWidgets.setSummary(
                             R.string.security_enable_widgets_disabled_summary);
+                } else {
+                    mEnableKeyguardWidgets.setSummary("");
                 }
                 mEnableKeyguardWidgets.setEnabled(!disabled);
             }
@@ -518,11 +505,7 @@ public class SecuritySettings extends RestrictedSettingsFragment
         }
 
         if (mEnableKeyguardWidgets != null) {
-            if (!lockPatternUtils.getWidgetsEnabled()) {
-                mEnableKeyguardWidgets.setSummary(R.string.disabled);
-            } else {
-                mEnableKeyguardWidgets.setSummary(R.string.enabled);
-            }
+            mEnableKeyguardWidgets.setChecked(lockPatternUtils.getWidgetsEnabled());
         }
     }
 
@@ -574,9 +557,8 @@ public class SecuritySettings extends RestrictedSettingsFragment
             lockPatternUtils.setVisiblePatternEnabled(isToggled(preference));
         } else if (KEY_POWER_INSTANTLY_LOCKS.equals(key)) {
             lockPatternUtils.setPowerButtonInstantlyLocks(isToggled(preference));
-        } else if (preference == mLockRingBattery) {
-            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                    Settings.System.BATTERY_AROUND_LOCKSCREEN_RING, isToggled(preference) ? 1 : 0);
+        } else if (KEY_ENABLE_WIDGETS.equals(key)) {
+            lockPatternUtils.setWidgetsEnabled(mEnableKeyguardWidgets.isChecked());
         } else if (preference == mShowPassword) {
             Settings.System.putInt(getContentResolver(), Settings.System.TEXT_SHOW_PASSWORD,
                     mShowPassword.isChecked() ? 1 : 0);

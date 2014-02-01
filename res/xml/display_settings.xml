@@ -15,7 +15,6 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-
         android:title="@string/display_settings"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
@@ -28,15 +27,9 @@
                 android:title="@string/wallpaper_settings_title"
                 android:fragment="com.android.settings.WallpaperTypeSettings" />
 
-        <PreferenceScreen
-                android:key="screen_recorder"
-                android:title="@string/screen_recorder_title"
-                android:fragment="com.android.settings.androidx.ScreenRecorderSettings" />
-
-        <PreferenceScreen
-                android:key="display_rotation"
-                android:fragment="com.android.settings.androidx.DisplayRotation"
-                android:title="@string/display_rotation_title" />
+        <CheckBoxPreference
+            android:key="accelerometer"
+            android:title="@string/accelerometer_title"/>
 
         <ListPreference
                 android:key="screen_timeout"
@@ -59,21 +52,10 @@
                 android:entryValues="@array/entryvalues_font_size"
                 android:dialogTitle="@string/dialog_title_font_size" />
 
-        <PreferenceCategory
-            android:key="category_light_options"
-            android:title="@string/display_category_light_options_title" >
-
-            <PreferenceScreen
-                android:key="battery_light"
-                android:title="@string/battery_light_title"
-                android:fragment="com.android.settings.androidx.notificationlight.BatteryLightSettings" />
-
-            <PreferenceScreen
-                android:key="notification_pulse"
-                android:title="@string/notification_pulse_title"
-                android:fragment="com.android.settings.androidx.notificationlight.NotificationLightSettings" />
-
-        </PreferenceCategory>
+        <CheckBoxPreference
+            android:key="notification_pulse"
+            android:title="@string/notification_pulse_title"
+            android:persistent="false" />
 
         <PreferenceScreen
                 android:key="wifi_display"
