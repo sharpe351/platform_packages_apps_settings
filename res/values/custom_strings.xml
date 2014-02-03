@@ -19,7 +19,4 @@
     <string name="androidx_title">Advanced X</string>
     <string name="androidx_settings_title">Android X Customizations</string>
 
-    <!-- Theme Chooser -->
-    <string name="themes_title">Themes</string>
-
 </resources>
