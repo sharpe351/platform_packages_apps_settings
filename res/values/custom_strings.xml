@@ -95,12 +95,15 @@
     <string name="clock_font_light_italic">Light Italic</string>
     <string name="clock_font_normal">Normal</string>
 
-     <!--Battery Icon selection-->
-     <string name="battery_icon_title">Battery icon</string>
-     <string name="battery_bar">Battery icon</string>
-     <string name="battery_bar_percent">Battery icon &amp; percent</string>
-     <string name="battery_circle">Battery circle</string>
-     <string name="battery_circle_percent">Battery circle &amp; percent</string>
+    <!--Battery Icon selection-->
+    <string name="battery_icon_title">Battery icon</string>
+    <string name="battery_bar">Battery icon</string>
+    <string name="battery_bar_percent">Battery icon &amp; percent</string>
+    <string name="battery_percent_then_bar">Battery bar &amp; percent left</string>
+    <string name="battery_circle">Battery circle</string>
+    <string name="battery_circle_percent">Battery circle &amp; percent</string>
+    <string name="battery_percent_only">Percent only</string>
+    <string name="battery_none">None</string>
 
     <!-- Quick Pulldown -->
     <string name="summary_quick_pulldown">edge of the status bar pulls down Quick Settings</string>
