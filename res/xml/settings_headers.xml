@@ -62,6 +62,13 @@
 
     <header android:title="@string/androidx_title" />
 
+    <!-- Android X -->
+    <header
+        android:id="@+id/androidx_settings"
+        android:title="@string/androidx_settings_title"
+        android:fragment="com.android.settings.androidx.AndroidxSettings"
+        android:icon="@drawable/ic_advanced_settings" />
+
     <!-- Themes -->
     <header
         android:id="@+id/theme_settings"
