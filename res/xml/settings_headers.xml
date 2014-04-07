@@ -71,13 +71,6 @@
                 android:targetClass="org.androidx.settings.SettingsActivity" />
     </header>
 
-    <!-- Superuser -->
-    <header
-        android:id="@+id/superuser"
-        android:fragment="com.android.settings.androidx.superuser.PolicyNativeFragment"
-        android:icon="@drawable/ic_action_permission"
-        android:title="@string/superuser" />
-
     <!-- =========== END Android X =========== -->
 
     <!-- DEVICE -->
