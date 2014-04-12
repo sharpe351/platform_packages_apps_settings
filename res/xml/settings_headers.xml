@@ -61,15 +61,14 @@
     <!-- =========== BEGIN Android X =========== -->
 
     <header android:title="@string/androidx_title" />
+
+    <!-- Themes -->
     <header
-        android:id="@+id/androidx_settings"
-        android:title="@string/androidx_settings_title"
-        android:icon="@drawable/ic_advanced_settings">
-        <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="org.androidx.settings"
-                android:targetClass="org.androidx.settings.SettingsActivity" />
-    </header>
+        android:id="@+id/theme_settings"
+        android:title="@string/themes_settings_title"
+        android:breadCrumbTitle="@string/themes_settings_title"
+        android:fragment="com.android.settings.androidx.ThemeSettings"
+        android:icon="@drawable/prd_ic_themepacks" />
 
     <!-- Superuser -->
     <header
