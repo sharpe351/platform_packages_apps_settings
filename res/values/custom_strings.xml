@@ -53,4 +53,8 @@
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
     <string name="recent_panel_lefty_mode_summary">Show recent apps panel on the left edge.</string>
 
+    <!-- Tap to sleep -->
+    <string name="tap_to_sleep_title">Tap to sleep</string>
+    <string name="tap_to_sleep_summary">Double tap the statusbar to sleep</string>
+
 </resources>
