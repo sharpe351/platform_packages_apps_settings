@@ -18,8 +18,6 @@
     <!-- Android X menus -->
     <string name="androidx_title">Advanced X</string>
     <string name="androidx_settings_title">Android X Customizations</string>
-    <string name="recent_settings">Recent panel settings</string>
-    <string name="notification_settings">Notification settings</string>
 
     <!-- Themes Settings -->
     <!-- Settings main menu entry -->
@@ -36,6 +34,7 @@
     <string name="soundpack_settings_title">Sound Packs</string>
 
     <!-- Recent panel -->
+    <string name="recent_settings">Recent panel settings</string>
     <string name="recent_panel_category">Recent apps panel</string>
     <string name="recent_panel_scale_title">Size</string>
     <string name="recent_panel_scale_summary">Recent apps panel size in percent.</string>
@@ -57,9 +56,5 @@
     <!-- Tap to sleep -->
     <string name="tap_to_sleep_title">Tap to sleep</string>
     <string name="tap_to_sleep_summary">Double tap the statusbar to sleep</string>
-
-    <!--Notification peek-->
-    <string name="notification_peek_title">Notification peek</string>
-    <string name="notification_peek_summary">Show latest notification after picking up your device</string>
 
 </resources>
