@@ -17,18 +17,13 @@
 package com.android.settings.androidx;
 
 import android.content.ContentResolver;
-import android.database.ContentObserver;
 import android.os.Bundle;
-import android.os.Handler;
-import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.provider.Settings;
-import android.provider.Settings.SettingNotFoundException;
-import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -38,15 +33,35 @@ public class StatusBar extends SettingsPreferenceFragment implements OnPreferenc
 
     private static final String TAG = "StatusBarSettings";
 
+    private static final String PREF_STATUS_BAR_BATTERY_STYLE = "battery_icon";
+
+    private ListPreference mStatusBarBattery;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar_settings);
 
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        mStatusBarBattery = (ListPreference) prefSet.findPreference(PREF_STATUS_BAR_BATTERY_STYLE);
+        mStatusBarBattery.setOnPreferenceChangeListener(this);
+        int statusBarBattery = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
+        mStatusBarBattery.setValue(String.valueOf(statusBarBattery));
+        mStatusBarBattery.setSummary(mStatusBarBattery.getEntry());
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mStatusBarBattery) {
+            int statusBarBattery = Integer.valueOf((String) newValue);
+            int index = mStatusBarBattery.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_BATTERY_STYLE, statusBarBattery);
+            mStatusBarBattery.setSummary(mStatusBarBattery.getEntries()[index]);
+            return true;
+        }
         return false;
     }
 
