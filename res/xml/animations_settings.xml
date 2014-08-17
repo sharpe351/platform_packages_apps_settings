@@ -40,4 +40,9 @@
 
     </PreferenceCategory>
 
+    <PreferenceScreen
+        android:key="overscroll_effects"
+        android:title="@string/ui_overscroll_title"
+        android:fragment="com.android.settings.androidx.OverscrollEffects" />
+
 </PreferenceScreen>
