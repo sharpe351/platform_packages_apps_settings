@@ -1704,6 +1704,17 @@
         <activity android:name=".notificationlight.NotificationLightSettings" />
         <activity android:name=".notificationlight.BatteryLightSettings" />
 
+        <activity android:name=".androidx.gesturepanel.CreateGestureActivity" />
+        <activity android:name=".androidx.gesturepanel.GestureBuilderActivity"
+                android:launchMode="singleTop"
+                android:excludeFromRecents="true" 
+                android:label="@string/gesture_panel_title" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SHORTCUT" />
+            </intent-filter>
+        </activity>
+
         <!-- Android X End -->
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
