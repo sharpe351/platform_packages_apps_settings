@@ -43,6 +43,7 @@ public class HomeButtonSettings extends SettingsPreferenceFragment implements
     private static final int ACTION_NOTHING = 0;
     private static final int ACTION_APP_SWITCH = 1;
     private static final int ACTION_SLEEP = 2;
+    private static final int ACTION_GESTURE = 3;
 
     private ListPreference mHomeDoubleTapAction;
 
