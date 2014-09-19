@@ -35,9 +35,4 @@
               android:entries="@array/overscroll_weight_entries"
               android:entryValues="@array/overscroll_weight_values" />
 
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="overscroll_glow_color"
-            android:title="@string/overscroll_glow_title"
-            android:defaultValue="#ffffff" />
-
 </PreferenceScreen>

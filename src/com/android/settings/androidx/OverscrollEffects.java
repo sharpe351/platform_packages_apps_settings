@@ -16,10 +16,7 @@
 
 package com.android.settings.androidx;
 
-import android.app.ActionBar;
 import android.content.ContentResolver;
-import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -30,14 +27,11 @@ import android.provider.Settings;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 public class OverscrollEffects extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
-    private static final String OVERSCROLL_GLOW_COLOR = "overscroll_glow_color";
     private static final String OVERSCROLL_PREF = "overscroll_effect";
     private static final String OVERSCROLL_WEIGHT_PREF = "overscroll_weight";
 
-    ColorPickerPreference mOverScrollGlowColor;
     private ListPreference mOverscrollPref;
     private ListPreference mOverscrollWeightPref;
 
@@ -47,12 +41,6 @@ public class OverscrollEffects extends SettingsPreferenceFragment implements OnP
         addPreferencesFromResource(R.xml.overscroll_effects);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-
-        mOverScrollGlowColor = (ColorPickerPreference) findPreference(OVERSCROLL_GLOW_COLOR);
-        mOverScrollGlowColor.setOnPreferenceChangeListener(this);
-        int defaultColor = Color.rgb(255, 255, 255);
-        int intColor = Settings.System.getInt(getActivity().getContentResolver(), Settings.System.OVERSCROLL_GLOW_COLOR, defaultColor);
-        mOverScrollGlowColor.setNewPreviewColor(intColor);
 
         mOverscrollPref = (ListPreference) findPreference(OVERSCROLL_PREF);
         int overscrollEffect = Settings.System.getInt(getContentResolver(),
@@ -73,15 +61,7 @@ public class OverscrollEffects extends SettingsPreferenceFragment implements OnP
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mOverScrollGlowColor) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.OVERSCROLL_GLOW_COLOR, intHex);
-            return true;
-        } else if (preference == mOverscrollPref) {
+        if (preference == mOverscrollPref) {
             int overscrollEffect = Integer.valueOf((String) newValue);
             Settings.System.putInt(getContentResolver(),
                     Settings.System.OVERSCROLL_EFFECT, overscrollEffect);
