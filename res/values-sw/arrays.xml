@@ -87,7 +87,7 @@
     <item msgid="1922181315419294640"></item>
     <item msgid="8934131797783724664">"Inasafisha..."</item>
     <item msgid="8513729475867537913">"Inaunganisha…"</item>
-    <item msgid="515055375277271756">"Uhalalishaji..."</item>
+    <item msgid="515055375277271756">"Inathibitisha..."</item>
     <item msgid="1943354004029184381">"Inapata anwani ya Ip..."</item>
     <item msgid="4221763391123233270">"Umeunganishwa"</item>
     <item msgid="624838831631122137">"Imesimamishwa"</item>
@@ -120,7 +120,6 @@
     <!-- no translation found for wifi_security_no_eap:2 (1968820975358150484) -->
     <!-- no translation found for wifi_ap_security:0 (5251664683198623324) -->
     <!-- no translation found for wifi_ap_security:1 (7989073072260294673) -->
-    <!-- no translation found for wifi_ap_security:2 (3112452131886885338) -->
   <string-array name="wifi_eap_method">
     <item msgid="1160193392455075561">"PEAP"</item>
     <item msgid="7981731051382306293">"TLS"</item>
@@ -147,28 +146,36 @@
   </string-array>
   <string-array name="wifi_signal">
     <item msgid="2245412278046491293">"Mbaya"</item>
-    <item msgid="5615082285463430971">"Ya Haki"</item>
+    <item msgid="5615082285463430971">"Wastani"</item>
     <item msgid="3565079809875324621">"Nzuri"</item>
     <item msgid="5702329417707689835">"Bora zaidi"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries">
     <item msgid="3269131034472904310">"Daima"</item>
     <item msgid="844721238536786870">"Wakati inachaji pekee"</item>
-    <item msgid="2990218920631468642">"Kamwe (huongeza matumizi ya data)"</item>
+    <item msgid="1986753720941888596">"Katu"</item>
   </string-array>
   <string-array name="wifi_sleep_policy_entries_wifi_only">
     <item msgid="2124319326282651391">"Daima"</item>
     <item msgid="7433294150916905997">"Wakati inachaji pekee"</item>
     <item msgid="1390404486722375028">"kamwe"</item>
   </string-array>
+  <string-array name="data_usage_data_range">
+    <item msgid="5013973108901348144">"Siku 30 zilizopita"</item>
+    <item msgid="6600989128423965319">"Weka mzunguko wa matumizi..."</item>
+  </string-array>
+  <string-array name="sim_card_data_range">
+    <item msgid="676666889014650266">"Tarakimu 4 za mwisho"</item>
+    <item msgid="7841762954785375718">"Tarakimu 4 za kwanza"</item>
+  </string-array>
   <string-array name="wifi_frequency_band_entries">
-    <item msgid="624340809384223320">"Kiotomatiki"</item>
+    <item msgid="1013988753804838790">"Otomatiki"</item>
     <item msgid="6670588712989942178">"GHz 5 tu"</item>
     <item msgid="2715516524973207876">"GHz 2.4 tu"</item>
   </string-array>
   <string-array name="usage_stats_display_order_types">
     <item msgid="2100172576767439288">"Muda wa utumiaji"</item>
-    <item msgid="3703676222230317933">"Zindua hesabu"</item>
+    <item msgid="4796160515314745154">"Mara ya mwisho ilipotumika"</item>
     <item msgid="2502754479975776899">"Jina la Programu"</item>
   </string-array>
   <string-array name="wifi_eap_entries">
@@ -196,11 +203,7 @@
   <string-array name="wifi_proxy_settings">
     <item msgid="4473276491748503377">"Hamna"</item>
     <item msgid="8673874894887358090">"Mwongozo"</item>
-  </string-array>
-  <string-array name="emergency_tone_entries">
-    <item msgid="5165439859689033665">"Zima"</item>
-    <item msgid="3165868966179561687">"Tahadhari"</item>
-    <item msgid="6038758039030476855">"Tetema"</item>
+    <item msgid="168893341855953140">"Usanidi Kiotomatiki wa Seva Mbadala"</item>
   </string-array>
   <string-array name="apn_auth_entries">
     <item msgid="3856896061242872146">"Hamna"</item>
@@ -279,6 +282,11 @@
     <item msgid="6700305533746877052">"sauti ya bluetooth"</item>
     <item msgid="2029227495214047094">"kaa chonjo"</item>
     <item msgid="26109888160231211">"fuatilia eneo"</item>
+    <item msgid="5753382310468855812">"fuatilia eneo kuu"</item>
+    <item msgid="3356591542543137332">"pata takwimu za matumizi"</item>
+    <item msgid="3073734345226842233">"zima au uwashe sauti ya maikrofoni"</item>
+    <item msgid="1148142988678569310">"maudhui ya mradi"</item>
+    <item msgid="9130014005474445273">"anzisha VPN"</item>
   </string-array>
   <string-array name="app_ops_labels">
     <item msgid="6602854600289714121">"Eneo"</item>
@@ -295,15 +303,15 @@
     <item msgid="2154671955760380322">"Chapisha arifa"</item>
     <item msgid="4282477730595931828">"Eneo"</item>
     <item msgid="4891423912898525905">"Piga simu"</item>
-    <item msgid="626463821668200388">"Pokea SMS/MMS"</item>
-    <item msgid="1237538540368797101">"Tuma SMS/MMS"</item>
+    <item msgid="2623604824935968113">"Soma SMS/MMS"</item>
+    <item msgid="4420177125221176306">"Andika SMS/MMS"</item>
     <item msgid="3986142739951490025">"Pokea SMS/MMS"</item>
     <item msgid="3984213795861739778">"Pokea SMS/MMS"</item>
     <item msgid="3656243523752472788">"Pokea SMS/MMS"</item>
     <item msgid="8105802370238551510">"Pokea SMS/MMS"</item>
     <item msgid="1407766984645388488">"Tuma SMS/MMS"</item>
-    <item msgid="1530132603376027248">"Pokea SMS/MMS"</item>
-    <item msgid="1188256962149204607">"Tuma SMS/MMS"</item>
+    <item msgid="3527273606643794973">"Soma SMS/MMS"</item>
+    <item msgid="4370895547001583812">"Andika SMS/MMS"</item>
     <item msgid="4218544235221631789">"Rekebisha mipangilio"</item>
     <item msgid="736541391767350377">"Chora juu"</item>
     <item msgid="5530815681721654194">"Fikia arifa"</item>
@@ -323,21 +331,75 @@
     <item msgid="7025966722295861512">"Sauti ya Bluetooth"</item>
     <item msgid="4665183401128289653">"Kaa chonjo"</item>
     <item msgid="8584357129746649222">"Eneo"</item>
+    <item msgid="7669257279311110599">"Eneo"</item>
+    <item msgid="3459320345690097795">"Pata takwimu za matumizi"</item>
+    <item msgid="1312534577834048535">"Zima ama uwashe sauti ya maikrofoni"</item>
+    <item msgid="5906017727368097853">"Maudhui ya mradi"</item>
+    <item msgid="2486614710846178542">"Anzisha VPN"</item>
   </string-array>
   <string-array name="long_press_timeout_selector_titles">
     <item msgid="3511504869290423954">"Fupi"</item>
     <item msgid="2560532955514699713">"Wastani"</item>
     <item msgid="2372711992605524591">"Ndefu"</item>
   </string-array>
-  <string-array name="select_runtime_titles">
-    <item msgid="3574453009229338122">"Dalvik"</item>
-    <item msgid="8978402910750533864">"ART"</item>
-    <item msgid="7839859333977894115">"ART (rekebisha hitilafu)"</item>
+  <string-array name="captioning_typeface_selector_titles">
+    <item msgid="1319652728542138112">"Chaguo-msingi"</item>
+    <item msgid="1016452621833735880">"Sans-serif"</item>
+    <item msgid="2496277987934654454">"Sans-serif iliyofupishwa"</item>
+    <item msgid="7247838127505318669">"Sans-serif monospace"</item>
+    <item msgid="4478414822462359763">"Serif"</item>
+    <item msgid="7502451783483660829">"Serif monospace"</item>
+    <item msgid="639503332147461010">"Ya kawaida"</item>
+    <item msgid="7967169925231332424">"Mwandiko ulioviringwa na kuunganishwa"</item>
+    <item msgid="561832997193039673">"Herufi kubwa zenye umbo ndogo"</item>
   </string-array>
-  <string-array name="select_runtime_summaries">
-    <item msgid="6412880178297884701">"Tumia Dalvik"</item>
-    <item msgid="5131846588686178907">"Tumia ART"</item>
-    <item msgid="4530003713865319928">"Tumia ART kurekebisha muundo"</item>
+  <string-array name="captioning_font_size_selector_titles">
+    <item msgid="4800919809575254054">"Madogo sana"</item>
+    <item msgid="6781094565687692782">"Madogo"</item>
+    <item msgid="8222123259497646551">"Ya Kawaida"</item>
+    <item msgid="5813217276778560466">"Makubwa"</item>
+    <item msgid="9044232017390975191">"Makubwa sana"</item>
+  </string-array>
+  <string-array name="captioning_edge_type_selector_titles">
+    <item msgid="4733815704128258753">"Chaguo-msingi"</item>
+    <item msgid="3217099060748617005">"Hamna"</item>
+    <item msgid="7467615139904599420">"Mistari"</item>
+    <item msgid="5623165557468608975">"Angusha kivuli"</item>
+    <item msgid="8088451174058214588">"Imeinuliwa"</item>
+    <item msgid="3821418743395480313">"Imepunguzwa"</item>
+  </string-array>
+  <string-array name="captioning_opacity_selector_titles">
+    <item msgid="7622491218136667566">"25%"</item>
+    <item msgid="2367156416247936773">"50%"</item>
+    <item msgid="5395560410107149298">"75%"</item>
+    <item msgid="8342334626783983353">"100%"</item>
+  </string-array>
+  <string-array name="captioning_preset_selector_titles">
+    <item msgid="7009918361545506251">"Tumia programu chaguo-msingi"</item>
+    <item msgid="1770533843436933500">"Nyeupe kwenye nyeusi"</item>
+    <item msgid="758587126802411846">"Nyeusi kwenye nyeupe"</item>
+    <item msgid="1495307195241623402">"Manjano kwenye nyeusi"</item>
+    <item msgid="6039700130994371612">"Manjano kwenye samawati"</item>
+    <item msgid="7169235156349580064">"Maalum"</item>
+  </string-array>
+  <string-array name="select_logd_size_titles">
+    <item msgid="3100534874529240291">"K64"</item>
+    <item msgid="505611754508988476">"K256"</item>
+    <item msgid="6361286924268716397">"M1"</item>
+    <item msgid="6405203239560695266">"M4"</item>
+    <item msgid="3025431211013424097">"M16"</item>
+  </string-array>
+  <string-array name="select_logd_size_lowram_titles">
+    <item msgid="524799395770610154">"K64"</item>
+    <item msgid="3534782711045262344">"K256"</item>
+    <item msgid="8085867209202153403">"M1"</item>
+  </string-array>
+  <string-array name="select_logd_size_summaries">
+    <item msgid="7346595473588765019">"K64 kwa kumbukumbu"</item>
+    <item msgid="2822309747675758628">"K256 kwa kumbukumbu"</item>
+    <item msgid="6699306198357496731">"M1 kwa kumbukumbu"</item>
+    <item msgid="5748528643937500349">"M4 kwa kumbukumbu"</item>
+    <item msgid="1978629051085111592">"M16 kwa kumbukumbu"</item>
   </string-array>
   <string-array name="hdcp_checking_titles">
     <item msgid="441827799230089869">"Katu usikague"</item>
@@ -379,9 +441,12 @@
   <string-array name="overlay_display_devices_entries">
     <item msgid="1606809880904982133">"Hamna"</item>
     <item msgid="688482401508173818">"720x480 mdpi"</item>
-    <item msgid="1725473474827398815">"1280x720 tvdpi"</item>
-    <item msgid="6813511923592083251">"1920x1080 xhdpi"</item>
-    <item msgid="3646519549495410112">"1280x720 tvdpi na 1920x1080 xhdpi"</item>
+    <item msgid="6027541158956821790">"720x480 mdpi (salama)"</item>
+    <item msgid="8181151155909301030">"1280x720 tvdpi"</item>
+    <item msgid="2920655562462493148">"1280x720 tvdpi (salama)"</item>
+    <item msgid="8910371271391940941">"1920x1080 xhdpi"</item>
+    <item msgid="4171600481380800455">"1920x1080 xhdpi (salama)"</item>
+    <item msgid="1937752114395156918">"1280x720 tvdpi na 1920x1080 xhdpi"</item>
   </string-array>
   <string-array name="enable_opengl_traces_entries">
     <item msgid="3191973083884253830">"Hamna"</item>
@@ -397,13 +462,12 @@
   <string-array name="track_frame_time_entries">
     <item msgid="2193584639058893150">"Imezimwa"</item>
     <item msgid="2751513398307949636">"Kwenye skrini kama pau"</item>
-    <item msgid="8272260411216018353">"Kwenye skrini kama mistari"</item>
-    <item msgid="120512413928262547">"Katika adb shell dumpsys gfxinfo"</item>
+    <item msgid="1851438178120770973">"Katika adb shell dumpsys gfxinfo"</item>
   </string-array>
   <string-array name="debug_hw_overdraw_entries">
     <item msgid="8190572633763871652">"Zima"</item>
     <item msgid="7688197031296835369">"Onyesha maeneo yaliyoondolewa"</item>
-    <item msgid="8332661909019981149">"Onyesha kihesabu kilichoondolewa"</item>
+    <item msgid="2290859360633824369">"Onyesha sehemu za Upofu Rangi Kijani"</item>
   </string-array>
   <string-array name="app_process_limit_entries">
     <item msgid="3401625457385943795">"Kiwango cha wastani"</item>
@@ -433,5 +497,38 @@
     <item msgid="7389829271787670252">"Uliza"</item>
     <item msgid="5077768429488260031">"Usiruhusu kamwe"</item>
     <item msgid="1417929597727989746">"Ruhusu kila wakati"</item>
+  </string-array>
+  <string-array name="ram_states">
+    <item msgid="7088762389498381203">"kawaida"</item>
+    <item msgid="4517779899383204000">"wastani"</item>
+    <item msgid="406385694840950802">"chini"</item>
+    <item msgid="4212263919458209842">"muhimu"</item>
+  </string-array>
+  <string-array name="entries_zen_mode">
+    <item msgid="816404936744485190">"Kimezimwa"</item>
+    <item msgid="5656544177755411222">"Ukatizwaji mdogo"</item>
+    <item msgid="8735337502532332056">"Haikatizwi kabisa"</item>
+  </string-array>
+  <string-array name="proc_stats_memory_states">
+    <item msgid="8845855295876909468">"Kawaida"</item>
+    <item msgid="866544120205026771">"Wastani"</item>
+    <item msgid="7851902244436886890">"Chini"</item>
+    <item msgid="3022922196817563960">"Imepungua sana"</item>
+  </string-array>
+  <string-array name="proc_stats_process_states">
+    <item msgid="5069825997142785829">"Endelevu"</item>
+    <item msgid="5779398140277006695">"Shughuli maarufu"</item>
+    <item msgid="1439598363694578255">"Muhimu (inatumika sasa)"</item>
+    <item msgid="3396458970745718652">"Muhimu (chinichini)"</item>
+    <item msgid="5214825238247511992">"Hifadhi nakala rufudu"</item>
+    <item msgid="311372689168254967">"Uzito mkubwa"</item>
+    <item msgid="7438189122367820362">"Huduma (inaendesha)"</item>
+    <item msgid="918687422516982498">"Huduma (inaanzisha tena)"</item>
+    <item msgid="6807727069641853029">"Kipokezi"</item>
+    <item msgid="6782857406100845127">"Mwanzo"</item>
+    <item msgid="2860945127596974299">"Shughuli ya mwisho"</item>
+    <item msgid="8610560843693675830">"Imewekwa akiba (shughuli)"</item>
+    <item msgid="4338089220026248848">"Imewekwa akiba (kiteja cha shughuli)"</item>
+    <item msgid="6652164677254579050">"Imewekwa akiba (tupu)"</item>
   </string-array>
 </resources>

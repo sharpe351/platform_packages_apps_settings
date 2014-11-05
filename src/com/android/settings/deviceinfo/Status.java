@@ -18,6 +18,7 @@ package com.android.settings.deviceinfo;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -35,13 +36,16 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceScreen;
 import android.telephony.CellBroadcastMessage;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
 import android.telephony.ServiceState;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.Toast;
 
 import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
@@ -324,7 +328,7 @@ public class Status extends PreferenceActivity {
                 }
             }
 
-            String rawNumber = mPhone.getLine1Number();  // may be null or empty
+            String rawNumber = mTelephonyManager.getLine1Number();  // may be null or empty
             String formattedNumber = null;
             if (!TextUtils.isEmpty(rawNumber)) {
                 formattedNumber = PhoneNumberUtils.formatNumber(rawNumber);
@@ -364,6 +368,27 @@ public class Status extends PreferenceActivity {
         } else {
             removePreferenceFromScreen(KEY_SERIAL_NUMBER);
         }
+
+        // Make every pref on this screen copy its data to the clipboard on longpress.
+        // Super convenient for capturing the IMEI, MAC addr, serial, etc.
+        getListView().setOnItemLongClickListener(
+            new AdapterView.OnItemLongClickListener() {
+                @Override
+                public boolean onItemLongClick(AdapterView<?> parent, View view,
+                        int position, long id) {
+                    ListAdapter listAdapter = (ListAdapter) parent.getAdapter();
+                    Preference pref = (Preference) listAdapter.getItem(position);
+
+                    ClipboardManager cm = (ClipboardManager)
+                            getSystemService(Context.CLIPBOARD_SERVICE);
+                    cm.setText(pref.getSummary());
+                    Toast.makeText(
+                        Status.this,
+                        com.android.internal.R.string.text_copied,
+                        Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+            });
     }
 
     @Override
@@ -521,6 +546,7 @@ public class Status extends PreferenceActivity {
             if ((ServiceState.STATE_OUT_OF_SERVICE == state) ||
                     (ServiceState.STATE_POWER_OFF == state)) {
                 mSignalStrength.setSummary("0");
+                return;
             }
 
             int signalDbm = mPhoneStateReceiver.getSignalStrengthDbm();
