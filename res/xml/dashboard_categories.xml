@@ -71,6 +71,21 @@
 
     </dashboard-category>
 
+    <!-- ANDROID X -->
+    <dashboard-category
+            android:id="@+id/androidx_section"
+            android:title="@string/androidx_title" >
+
+        <!-- Custom settings -->
+        <dashboard-tile
+                android:id="@+id/androidx_settings"
+                android:title="@string/androidx_settings_title"
+                android:fragment="com.android.settings.androidx.AndroidxSettings"
+                android:icon="@drawable/ic_advanced_settings"
+                />
+
+    </dashboard-category>
+
     <!-- DEVICE -->
     <dashboard-category
             android:id="@+id/device_section"
