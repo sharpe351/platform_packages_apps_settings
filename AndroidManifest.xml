@@ -1717,6 +1717,9 @@
 
         <!-- Android X End -->
 
+        <!-- Vanir activity -->
+        <activity android:name=".vanir.navbar.NavbarTabHostFragment" />
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">
