@@ -33,6 +33,7 @@ import android.widget.TextView;
 import com.android.internal.widget.LinearLayoutWithDefaultTouchRecepient;
 import com.android.internal.widget.LockGestureView;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.notification.RedactionInterstitial;
 
 import java.util.ArrayList;
 
@@ -521,6 +522,7 @@ public class ChooseLockGesture extends SettingsActivity {
             getActivity().setResult(RESULT_FINISHED);
             getActivity().finish();
             mDone = true;
+            startActivity(RedactionInterstitial.createStartIntent(getActivity()));
         }
     }
 }
