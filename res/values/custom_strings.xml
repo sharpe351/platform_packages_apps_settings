@@ -23,7 +23,7 @@
 
     <!-- Status bar -->
     <string name="status_bar_title">Status bar</string>
-    <string name="status_bar_style_title">Style</string>
+    <string name="status_bar_tweaks_title">Status bar mods</string>
 
     <!-- Status bar | Clock -->
     <string name="status_bar_clock">Clock and date</string>
@@ -243,6 +243,14 @@
     <string name="navigation_bar_longpress_timeout_text">Button longpress delay</string>
     <string name="enable_navigation_ring_title">Navigation search assistant</string>
     <string name="enable_navigation_ring_summary">Enable long-press on home for the google now search assistant</string>
+
+    <!-- Status bar - Battery -->
+    <string name="status_bar_battery_style_title">Battery status style</string>
+    <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
+    <string name="status_bar_battery_style_icon_landscape">Icon landscape</string>
+    <string name="status_bar_battery_style_circle">Circle</string>
+    <string name="status_bar_battery_style_text">Text</string>
+    <string name="status_bar_battery_style_hidden">Hidden</string>
 
     <!-- Battery percentage -->
     <string name="status_bar_battery_percentage_title">Show battery percentage</string>
