@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight="1.0"
-        android:gestureColor="#c0ffffff"
+        android:gestureColor="#ff009688"
         android:gestureStrokeWidth="16.0"
         android:gestureStrokeType="single" />
 
