@@ -99,13 +99,6 @@
     <string name="notification_light_missed_call_title">Missed call</string>
     <string name="notification_light_voicemail_title">Voicemail</string>
 
-    <!-- Home key double tap -->
-    <string name="home_button_pref_title">Home button</string>
-    <string name="home_key_double_tap_title">Double tap action</string>
-    <string name="home_key_action_nothing">No action</string>
-    <string name="home_key_action_app_switch">Recent apps switcher</string>
-    <string name="home_key_action_sleep">Turn screen off</string>
-
     <!-- Lock Gesture settings -->
     <!-- Security & location settings screen, setting option name -->
     <string name="lockgesture_change_lock_pattern_label">Change unlock gesture</string>
