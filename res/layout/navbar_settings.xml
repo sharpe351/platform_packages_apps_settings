@@ -172,7 +172,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="@string/enable_sidekeys"
-                    android:defaultValue="true" />
+                    android:defaultValue="false" />
 
                 <TextView
                     android:id="@+id/sidekey_text"
@@ -201,7 +201,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="@string/enable_ime_layout"
-                    android:defaultValue="true" />
+                    android:defaultValue="false" />
 
                 <TextView
                     android:id="@+id/arrows_text"

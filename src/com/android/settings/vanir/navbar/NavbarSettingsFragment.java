@@ -248,7 +248,7 @@ public class NavbarSettingsFragment extends Fragment implements SeekBar.OnSeekBa
         mBarWidthValue.setText(String.valueOf(currentWidthPercent + mMinWidthPercent)+"%");
         mNavigationBarWidth.setOnSeekBarChangeListener(this);
 
-		// Softkey longpress timeout
+        // Softkey longpress timeout
         mSoftkeyLongPress = (SeekBar) v.findViewById(R.id.navigation_bar_longpress_timeout);
         mSoftkeyLongPressValue = (TextView) v.findViewById(R.id.navigation_bar_longpress_timeout_value);
         mSoftkeyLongPress.setMax(SOFTKEY_LONG_PRESS_TIMEOUT_MAX_VAL);
@@ -258,7 +258,7 @@ public class NavbarSettingsFragment extends Fragment implements SeekBar.OnSeekBa
 
         // Legacy side menu keys
         mSideKeys = (CheckBox) v.findViewById(R.id.sidekey_checkbox);
-        mSideKeys.setChecked(Settings.System.getInt(cr, Settings.System.NAVIGATION_BAR_SIDEKEYS, 1) == 1);
+        mSideKeys.setChecked(Settings.System.getInt(cr, Settings.System.NAVIGATION_BAR_SIDEKEYS, 0) == 1);
         mSideKeys.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
