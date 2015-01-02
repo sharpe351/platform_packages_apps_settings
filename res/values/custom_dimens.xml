@@ -34,4 +34,9 @@
     <dimen name="list_toggle_height">72dp</dimen>
     <dimen name="list_toggle_width">320dp</dimen>
     <dimen name="toggle_rearrange_dialog_title_height">68dp</dimen>
+
+    <!-- QS tiles -->
+    <dimen name="qs_tile_max_size">120dp</dimen>
+    <dimen name="qs_tile_max_padding">10dp</dimen>
+    <dimen name="qs_tile_dragged_z">10dp</dimen>
 </resources>
