@@ -14,6 +14,7 @@
     <!-- Android X menus -->
     <string name="androidx_title">Advanced X</string>
     <string name="androidx_settings_title">Android X Customizations</string>
+    <string name="misc_tweaks">Miscellaneous tweaks</string>
 
     <!-- General strings -->
     <string name="add">Add</string>
@@ -22,6 +23,7 @@
     <string name="reset">Reset</string>
 
     <!-- Status bar -->
+    <string name="status_bar_tweaks">Status bar tweaks</string>
     <string name="status_bar_title">Status bar</string>
     <string name="status_bar_tweaks_title">Status bar mods</string>
 
@@ -203,6 +205,7 @@
     <string name="select_custom_app_title">Select custom application</string>
 
     <!-- Custom navigation bar targets -->
+    <string name="nav_bar_tweaks">Navigation bar tweaks</string>
     <string name="choose_action_double_tap_title">Choose double tap action</string>
     <string name="choose_action_title">Choose action</string>
     <string name="choose_action_short_title">Choose short action</string>
@@ -295,4 +298,8 @@
     <string name="screen_recorder_bitrate_20000000">20000000</string>
     <string name="screen_recorder_record_audio_title">External audio</string>
     <string name="screen_recorder_record_audio_summary">Record audio from the microphone</string>
+
+    <!-- Headset -->
+    <string name="headset_connect_player_title">Launch music app</string>
+    <string name="headset_connect_player_summary">Launch the default music app when headset is connected</string>
 </resources>
